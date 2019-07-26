@@ -1,0 +1,11 @@
+--- c-icap	2016-01-06 07:01:54.000000000 +0100
++++ c-icap.new	2017-01-17 09:50:45.289886807 +0100
+@@ -3,7 +3,7 @@
+ # installed at /etc/default/c-icap by the maintainer scripts
+ 
+ # Should c-icap daemon run automatically on startup? (default: no)
+-START=no
++START=yes
+ 
+ # Additional options that are passed to the Daemon.
+ DAEMON_ARGS=""

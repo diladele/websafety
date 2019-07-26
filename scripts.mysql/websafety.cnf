@@ -1,0 +1,24 @@
+[mysqld]
+
+# If set to 1, InnoDB will flush (fsync) the transaction logs to the disk at each commit, which offers full ACID behavior.
+# If you are willing to compromise this safety, and you are running small transactions, you may set this to 0 or 2 to
+# reduce disk I/O to the logs. Value 0 means that the log is only written to the log file and the log file flushed to
+# disk approximately once per second. Value 2 means the log is written to the log file at each commit, but the log
+# file is only flushed to disk approximately once per second.
+innodb_flush_log_at_trx_commit=2
+
+# The size of the buffer InnoDB uses for buffering log data. As soon as it is full, InnoDB will have to flush it to disk.
+# As it is flushed once per second anyway, it does not make sense to have it very large (even with long transactions).
+innodb_log_buffer_size=64M
+
+# InnoDB, unlike MyISAM, uses a buffer pool to cache both indexes and row data. The bigger you set this the less disk I/O
+# is needed to access data in tables. On a dedicated database server you may set this parameter up to 80% of the
+# machine physical memory size. Do not set it too large, though, because competition of the physical memory may
+# cause paging in the operating system. Note that on 32bit systems you might be limited to 2-3.5G of user level
+# memory per process, so do not set it too high.
+innodb_buffer_pool_size=1GB
+
+# Size of each log file in a log group. You should set the combined size of log files to about 25%-100% of your buffer
+# pool size to avoid unneeded buffer pool flush activity on log file overwrite. However, note that a larger logfile size will
+# increase the time needed for the recovery process.
+innodb_log_file_size=100M

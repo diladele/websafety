@@ -1,0 +1,46 @@
+--- c-icap.conf	2016-01-06 12:09:38.000000000 +0100
++++ c-icap.conf.new	2017-01-17 10:24:13.779023980 +0100
+@@ -129,7 +129,7 @@
+ #	The port number that the c-icap server uses to listen to requests.
+ # Default:
+ #	Port 1344
+-Port 1344 
++Port 1345
+ 
+ # TAG: User
+ # Format: User username
+@@ -229,7 +229,7 @@
+ #	The location of modules
+ # Default:
+ #	ModulesDir /usr/lib/c_icap
+-ModulesDir ${prefix}/lib/x86_64-linux-gnu/c_icap
++ModulesDir /usr/lib/x86_64-linux-gnu/c_icap
+ 
+ # TAG: ServicesDir
+ # Format: ServicesDir dir
+@@ -237,7 +237,7 @@
+ #	The location of services
+ # Default:
+ #	ServicesDir /usr/lib/c_icap
+-ServicesDir ${prefix}/lib/x86_64-linux-gnu/c_icap
++ServicesDir /usr/lib/x86_64-linux-gnu/c_icap
+ 
+ # TAG: TemplateDir
+ # Format: TemplateDir dir
+@@ -567,6 +567,7 @@
+ #	
+ # Example:
+ #	Service echo_service srv_echo.so
++Service squidclamav squidclamav.so
+ 
+ # TAG: ServiceAlias
+ # Format: ServiceAlias AliasName ServiceName[?param1=value1&param2=value2...]
+@@ -610,7 +611,7 @@
+ #	Simple test service
+ # Example:
+ #	Service echo srv_echo.so
+-Service echo srv_echo.so
++# Service echo srv_echo.so
+ 
+ # Module: sys_logger
+ # Description:

@@ -1,0 +1,13 @@
+[Unit]
+Description=Update /etc/issue file for Web Safety virtual appliance after network is up
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/websafety/bin/va_issue.sh
+StandardOutput=file:/etc/issue
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
