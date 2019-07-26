@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="7.0.0"
-MINOR="7A5E"
+MAJOR="7.1.0"
+MINOR="AA34"
 
 # get latest build
 curl -O http://packages.diladele.com/websafety/$MAJOR.$MINOR/amd64/release/centos7/websafety-${MAJOR}-${MINOR}.x86_64.rpm

@@ -10,7 +10,7 @@ fi
 wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
-echo "deb http://squid46.diladele.com/ubuntu/ bionic main" > /etc/apt/sources.list.d/squid46.diladele.com.list
+echo "deb http://squid48.diladele.com/ubuntu/ bionic main" > /etc/apt/sources.list.d/squid48.diladele.com.list
 
 # and install
 apt-get update && apt-get install -y \
