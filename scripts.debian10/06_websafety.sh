@@ -17,7 +17,7 @@ if [ $? -eq 0 ]; then
     ARCH="armhf"
 fi
 
-wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian9/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian10/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install it
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
