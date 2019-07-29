@@ -26,10 +26,20 @@ wget http://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
 gunzip ecap_clamav_adapter-2.0.0.tar.gz
 tar -xvf ecap_clamav_adapter-2.0.0.tar
 
-# configure, make and install
+# change working dir
 pushd ecap_clamav_adapter-2.0.0
-./configure && make && make install
+
+# configure
+./configure
+
+# patch the CL_SCAN_STDOPT error
+patch patch /etc/default/c-icap < ClamAv.cc.patch
+
+# make 
+make && make install
+
+# revert back
 popd
 
-# and revert back
+# and again
 popd
