@@ -7,14 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install clamav
-yum -y install wget clamav clamav-devel gcc-c++
-
-# we will be working in a subfolder
-rm -R ./build/ecap_clamav
-mkdir -p ./build/ecap_clamav
-
-# change into the folder
-pushd ./build/ecap_clamav
+yum -y install wget clamav clamav-devel gcc-c++ patch
 
 # from now on every error is fatal
 set -e
@@ -22,14 +15,17 @@ set -e
 # download the sources
 wget http://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
 
-# unpack and untar them
-gunzip ecap_clamav_adapter-2.0.0.tar.gz
-tar -xvf ecap_clamav_adapter-2.0.0.tar
+# unpack
+tar -xvzf ecap_clamav_adapter-2.0.0.tar.gz
+
+# patch the CL_SCAN_STDOPT error
+patch ecap_clamav_adapter-2.0.0/src/ClamAv.cc < ClamAv.cc.patch
+
+# change into working dir
+pushd ecap_clamav_adapter-2.0.0
 
 # configure, make and install
-pushd ecap_clamav_adapter-2.0.0
 ./configure && make && make install
-popd
 
 # and revert back
 popd
