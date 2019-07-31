@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="7.0.0"
-MINOR="7A5E"
+MAJOR="7.1.0"
+MINOR="2DB9"
 ARCH="amd64"
 
 # download
@@ -22,6 +22,3 @@ sudo -u websafety python3 /opt/websafety/var/console/generate.py
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety
-
-# fix the tld error (see https://github.com/diladele/websafety-issues/issues/1112)
-sudo -u websafety patch /opt/websafety/var/console/_domain/traffic/users.py < users.py.patch
