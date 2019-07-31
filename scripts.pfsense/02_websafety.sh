@@ -26,7 +26,7 @@ fi
 
 # setup some configuration variables
 ARCH=`uname -m`
-DDWS_VERSION=7.1.0
+DDWS_VERSION=7.2.0
 DDWS_BUILD=2DB9
 
 # get latest version of web safety
