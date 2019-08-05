@@ -6,11 +6,5 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# remove unneeded packages
-apt -y autoremove
-
-# update and upgrade
-apt-get update && apt-get -y upgrade
-
-# and now reboot
-reboot
+# update, upgrade and reboot
+apt-get update && apt-get -y upgrade && reboot
