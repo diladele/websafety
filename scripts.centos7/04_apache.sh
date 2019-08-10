@@ -16,12 +16,9 @@ systemctl enable httpd.service
 yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 yum install -y python36u python36u-pip python36u-devel
 
-# install pip3
-#python3.6 -m ensurepip
-
 # create symlinks for python 3.6 and pip3
-#ln -s /usr/bin/python3.6 /usr/bin/python3
-#ln -s /usr/local/bin/pip3 /usr/bin/pip3
+ln -s /usr/bin/python3.6 /usr/bin/python3
+ln -s /usr/bin/pip3.6 /usr/bin/pip3
 
 # install python django for web ui
 pip3 install django==2.1.2
