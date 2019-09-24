@@ -12,6 +12,7 @@ apt -y install python3-pip python3-dev libjpeg-dev zlib1g-dev libldap2-dev libsa
 # install django and all other modules
 pip3 install django==2.1.2
 pip3 install pytz
+pip3 install tld
 pip3 install requests
 pip3 install pandas
 pip3 install PyYAML
