@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="8.0.0"
-MINOR="63D1"
+MINOR="9248"
 ARCH="amd64"
 
 # download
@@ -17,8 +17,8 @@ wget http://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/ubunt
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
-# generate the configuration files once
-sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py
+# generate the configuration files once as the proxy user
+sudo -u proxy python3 /opt/websafety-ui/var/console/generate.py
 
 # and relabel folder
 chown -R websafety:websafety /opt/websafety-ui

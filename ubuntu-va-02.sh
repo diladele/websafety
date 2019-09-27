@@ -6,18 +6,19 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# install web safety
-pushd scripts.ubuntu18
-bash 02_apache.sh && \
-bash 03_squid.sh && \
-bash 04_clamav.sh && \
-bash 05_websafety.sh && \
-bash 06_integrate.sh
+# install web safety core
+pushd scripts.ubuntu18.core
+bash 02_squid.sh && \
+bash 03_clamav.sh && \
+bash 04_websafety.sh && \
+bash 05_integrate.sh
 popd
 
-# install mysql
-pushd scripts.mysql
-bash 01_mysql.sh && bash 02_sync.sh
+# install web safety ui
+pushd scripts.ubuntu18.ui
+bash 01_apache.sh && \
+bash 02_websafety-ui.sh && \
+bash 03_integrate.sh
 popd
 
 # install va
