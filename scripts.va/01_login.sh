@@ -30,11 +30,11 @@ cp wsissue.service /etc/systemd/system/wsissue.service
 systemctl enable wsissue.service
 
 # let Web UI of Web Safety to manage the network
-sudo -u websafety python3 /opt/websafety/var/console/utils.py --network=ubuntu18
+sudo -u websafety python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu18
 
 # set new license if present
 if [ -f license.pem ]; then
-    sudo -u websafety cp license.pem /opt/websafety/etc
+    sudo -u proxy cp license.pem /opt/websafety/etc
 fi
 
 echo "Success, run next step please."

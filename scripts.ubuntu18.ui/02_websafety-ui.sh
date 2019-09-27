@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="8.0.0"
-MINOR="9248"
+MINOR="E662"
 ARCH="amd64"
 
 # download
