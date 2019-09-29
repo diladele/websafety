@@ -16,6 +16,8 @@ pip3 install tld
 pip3 install requests
 pip3 install pandas
 pip3 install PyYAML
+pip3 install PyOpenSSL
+pip3 install psutil
 
 # there are some bugs in Ubuntu 18 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
