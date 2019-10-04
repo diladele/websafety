@@ -2,3 +2,5 @@ license.pem
 scripts.ubuntu16/license.pem
 scripts.ubuntu18/license.pem
 scripts.va/license.pem
+scripts.azure/
+scripts.aws/
