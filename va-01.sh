@@ -6,4 +6,4 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-pushd scripts.ubuntu18.core && bash 01_update.sh && popd
+pushd scripts.ubuntu18 && bash 01_update.sh && popd
