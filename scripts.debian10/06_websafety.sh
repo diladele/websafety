@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="7.2.0"
-MINOR="D39F"
+MINOR="4B8A"
 ARCH="amd64"
 
 # get latest build
@@ -17,13 +17,10 @@ if [ $? -eq 0 ]; then
     ARCH="armhf"
 fi
 
-wget http://packages.diladele.com/websafety/$MAJOR.$MINOR/$ARCH/release/debian10/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget http://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/debian10/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install it
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
 
-# generate the configuration files once
-sudo -u websafety python3 /opt/websafety/var/console/generate.py
-
-# relabel folder
-chown -R websafety:websafety /opt/websafety
+# web safety runs using the same user as squid
+chown -R proxy:proxy /opt/websafety
