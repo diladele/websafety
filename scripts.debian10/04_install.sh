@@ -20,7 +20,7 @@ fi
 pushd build/squid
 
 # install squid packages
-sudo apt-get install squid-langpack
+apt-get install -y squid-langpack
 dpkg --install squid-common_${SQUID_PKG}_all.deb
 dpkg --install squid_${SQUID_PKG}_${ARCH}.deb
 dpkg --install squidclient_${SQUID_PKG}_${ARCH}.deb
