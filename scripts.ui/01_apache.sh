@@ -9,6 +9,12 @@ fi
 # install pip3 and other python modules, ldap/sasl (we need it for python ldap module)
 apt -y install python3-pip python3-dev libjpeg-dev zlib1g-dev libldap2-dev libsasl2-dev libssl-dev
 
+# on RPI install libatlas for numpy
+cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    apt-get install libatlas-base-dev
+fi
+
 # install django and all other modules
 pip3 install django==2.2.6
 pip3 install pytz

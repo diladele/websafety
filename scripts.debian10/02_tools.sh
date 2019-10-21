@@ -8,7 +8,7 @@ fi
 
 # install build tools
 apt-get -y install \
-    devscripts build-essential fakeroot \
+    devscripts build-essential fakeroot sudo \
     debhelper dh-autoreconf dh-apparmor cdbs ed net-tools
 
 # install additional header packages for squid 4
