@@ -13,7 +13,7 @@ source squid.ver
 ARCH="amd64"
 cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-	ARCH="armhf"
+    ARCH="armhf"
 fi
 
 # decend into working directory
