@@ -16,9 +16,7 @@ popd
 
 # install web safety ui
 pushd scripts.ui
-bash 01_apache.sh && \
-bash 02_websafety-ui.sh && \
-bash 03_integrate.sh
+bash 01_apache.sh && bash 02_webui.sh
 popd
 
 # install va
