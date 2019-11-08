@@ -15,7 +15,7 @@ bash 05_integrate.sh
 popd
 
 # install web safety ui
-pushd scripts.ui
+pushd scripts.ui.deb
 bash 01_apache.sh && bash 02_webui.sh
 popd
 
