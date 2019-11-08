@@ -21,6 +21,10 @@ cp squid.conf /etc/squid/squid.conf
 # allow web ui read-only access to squid configuration file
 chmod o+r /etc/squid/squid.conf
 
+# allow web ui read-only access to squid logs
+chmod o+x /var/log/squid
+chmod -R o+r /var/log/squid
+
 # create storage for generated ssl certificates
 SSL_DB=/var/spool/squid_ssldb
 if [ -d $SSL_DB ]; then
