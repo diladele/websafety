@@ -6,8 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# enable epel repository and update
-yum -y install epel-release && yum -y update
+# update the system
+dnf -y update
 
 # disable selinux
 sed -i s/SELINUX=enforcing/SELINUX=disabled/g /etc/selinux/config

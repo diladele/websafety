@@ -6,9 +6,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# allow connection to 80, 443 and 3128 ports for apache and squid
-firewall-cmd --permanent --zone=public --add-service=http
-firewall-cmd --permanent --zone=public --add-service=https
+# allow connection to squid
 firewall-cmd --permanent --zone=public --add-port=3128/tcp
 firewall-cmd --reload
 
@@ -38,4 +36,4 @@ chown -R squid:squid $SSL_DB
 /usr/sbin/squid -k parse
 
 # restart squid to load all config
-systemctl restart squid.service
+systemctl restart squid
