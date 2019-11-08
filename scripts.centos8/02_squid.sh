@@ -6,8 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# install stock squid 
-dnf -y install squid
+# install stock squid with ecap libs
+dnf -y install squid libecap libecap-devel
 
 # make squid autostart after reboot
 systemctl enable squid

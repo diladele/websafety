@@ -36,4 +36,4 @@ chown -R squid:squid $SSL_DB
 /usr/sbin/squid -k parse
 
 # restart squid to load all config
-systemctl restart squid.service
+systemctl restart squid

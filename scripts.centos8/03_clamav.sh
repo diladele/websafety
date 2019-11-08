@@ -6,14 +6,17 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# we need epel release for clamav
+dnf -y install epel-release
+
 # install clamav
-yum -y install wget clamav clamav-devel gcc-c++ patch
+dnf -y install clamav clamav-update clamav-devel gcc-c++ patch make
 
 # from now on every error is fatal
 set -e
 
 # download the sources
-wget http://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
+curl -O http://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
 
 # unpack
 tar -xvzf ecap_clamav_adapter-2.0.0.tar.gz
