@@ -24,9 +24,5 @@ sudo -u squid python3 /opt/websafety-ui/var/console/generate.py
 # relabel folder
 chown -R websafety:websafety /opt/websafety-ui
 
-#??? integrate with apache
-# a2dissite 000-default
-# a2ensite websafety
-
 # and restart all daemons
 systemctl restart httpd
