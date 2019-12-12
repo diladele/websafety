@@ -27,7 +27,8 @@ dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 sudo -u websafety python3 /opt/websafety-ui/var/console/utils.py --network=$OSNAME
 
 # sync ui and actual files in disk
-sudo -u proxy python3 /opt/websafety-ui/var/console/generate.py
+sudo -u proxy python3 /opt/websafety-ui/var/console/generate.py --core
+sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py --ui
 
 # relabel folder
 chown -R websafety:websafety /opt/websafety-ui
