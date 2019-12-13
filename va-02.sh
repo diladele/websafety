@@ -20,7 +20,7 @@ bash 01_apache.sh && bash 02_webui.sh
 popd
 
 # install va
-pushd va
+pushd appliance
 bash 01_login.sh && bash 02_harden.sh
 popd
 
