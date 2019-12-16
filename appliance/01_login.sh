@@ -17,6 +17,12 @@ if [ $? -eq 0 ]; then
     apt install -y open-vm-tools
 fi
 
+# copy the handy monitor.sh script to installation folder
+cp monitor.sh /opt/websafety/bin/
+
+# and make it executable
+chmod +x /opt/websafety/bin/monitor.sh
+
 # copy the /etc/issue creation script to installation folder
 cp va_issue.sh /opt/websafety/bin/
 
