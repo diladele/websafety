@@ -35,9 +35,4 @@ cp wsissue.service /etc/systemd/system/wsissue.service
 # enable it
 systemctl enable wsissue.service
 
-# set new license if present
-if [ -f license.pem ]; then
-    sudo -u proxy cp license.pem /opt/websafety/etc
-fi
-
 echo "Success, run next step please."

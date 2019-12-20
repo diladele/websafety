@@ -1,0 +1,11 @@
+[Unit]
+Description=Update root password for Web Safety virtual appliance once
+
+[Service]
+Type=oneshot
+ExecStart=/opt/websafety/bin/chpass_aws.sh
+StandardOutput=file:/opt/websafety/var/log/chpass_aws.log
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

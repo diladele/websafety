@@ -19,15 +19,9 @@ pushd ui.deb
 bash 01_apache.sh && bash 02_webui.sh
 popd
 
-# install va
-pushd appliance
-bash 01_login.sh && bash 02_harden.sh
-popd
-
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"
-echo "SUCCESS --- VA is Ready (check the license and publish it) ---"
-cat /opt/websafety/etc/license.pem | grep "Not After"
+echo "SUCCESS Now run va.sh script for the appliance or azure-*.sh or aws-*.sh for cloud instances!"
 echo "SUCCESS"
 echo "SUCCESS"
