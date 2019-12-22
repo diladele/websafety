@@ -1,0 +1,11 @@
+[Unit]
+Description=Automatic license activation service for Amazon AWS (runs once after boot)
+
+[Service]
+Type=oneshot
+ExecStart=/etc/cron.hourly/websafety_license
+StandardOutput=file:/opt/websafety/var/log/wslicd.service.log
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
