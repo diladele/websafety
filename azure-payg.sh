@@ -13,6 +13,11 @@ fi
 # 	bash build_02.sh
 #
 
+# adjust ssh properties as azure requires
+pushd appliance/azure
+bash 01_adjust.sh
+popd
+
 #  create azure license update service that runs exactly once
 cp appliance/azure/wslicd.service /etc/systemd/system/wslicd.service
 

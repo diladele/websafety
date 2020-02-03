@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="7.3.0"
-MINOR="FE26"
+MINOR="28A5"
 
 # get latest build
 curl -O http://packages.diladele.com/websafety-core/$MAJOR.$MINOR/amd64/release/centos8/websafety-${MAJOR}-${MINOR}.x86_64.rpm
