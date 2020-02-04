@@ -35,4 +35,7 @@ cp wsissue.service /etc/systemd/system/wsissue.service
 # enable it
 systemctl enable wsissue.service
 
+# set the logrotate settings to keep last 365 days of logs
+cp squid /etc/logrotate.d/ && chown root:root /etc/logrotate.d/squid && chmod 644 /etc/logrotate.d/squid
+
 echo "Success, run next step please."
