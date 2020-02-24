@@ -8,7 +8,7 @@ fi
 
 # default params
 MAJOR="7.3.0"
-MINOR="AEE6"
+MINOR="8476"
 ARCH="amd64"
 OSNAME="centos8"
 
