@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install apache web server and required tools
-dnf -y install httpd httpd-devel krb5-workstation mc
+dnf -y install httpd httpd-devel krb5-workstation mc net-tools
 
 # make apache autostart on reboot
 systemctl enable httpd
