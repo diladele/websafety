@@ -13,6 +13,11 @@ fi
 # 	bash build_02.sh
 #
 
+# adjust ssh properties as azure requires
+pushd appliance/azure
+bash 01_adjust.sh
+popd
+
 # set new license
 if [ -f license.pem ]; then
     sudo -u proxy cp license.pem /opt/websafety/etc/license.pem

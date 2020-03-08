@@ -23,8 +23,8 @@ pushd build/squid
 
 # get squid from debian experimental
 wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_PKG}.dsc
-wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_VER}.orig.tar.gz
-wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_VER}.orig.tar.gz.asc
+wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_VER}.orig.tar.xz
+wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_VER}.orig.tar.xz.asc
 wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_PKG}.debian.tar.xz
 
 # unpack the source package

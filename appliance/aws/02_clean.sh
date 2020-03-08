@@ -25,6 +25,8 @@ rm -Rf appliance
 rm build-01.sh
 rm build-02.sh
 rm aws-byol.sh
+rm aws-payg.sh
+rm license-cloud.pem
 
 # remove history
 find /root/.*history /home/*/.*history -exec rm -f {} \;

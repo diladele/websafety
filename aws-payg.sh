@@ -28,6 +28,11 @@ if [ -f license-cloud.pem ]; then
     sudo -u proxy cp license-cloud.pem /opt/websafety/etc/license.pem
 fi
 
+# install password change aws service and prepare for AMI generation
+pushd appliance/aws
+bash 01_pasw.sh && bash 02_clean.sh 
+popd
+
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"

@@ -10,7 +10,7 @@ Main features of the application are:
 - scans downloaded files for viruses (using eCAP ClamAV module)
 - blocks file downloads
 - performs group based web filtering (e.g. adults or admins are not filtered, kids or office workers are filtered extensively)
-- controls web usage by categories (e.g. social networks are not allowed, explicit material is not allowed for childred)
+- controls web usage by categories (e.g. social networks are not allowed, explicit material is not allowed for children)
 - removes annoying web ads 
 - protects online privacy by disallowing access to web trackers
 
