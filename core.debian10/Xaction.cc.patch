@@ -1,0 +1,11 @@
+--- Xaction.cc.original	2020-04-13 10:35:15.231335505 +0100
++++ Xaction.cc	2020-04-13 10:36:13.841324633 +0100
+@@ -302,7 +302,7 @@
+         // We are here because we are or were trickling. If we stopped trickling,
+         // we should not give more than we had trickled (until the final action).
+         const Size tricklingMax = (trickledSize > pos) ? trickledSize - pos : 0;
+-        bufSize = std::min(bufSize, tricklingMax);
++        bufSize = std::min(static_cast<Size>(bufSize), tricklingMax);
+         // fall through to also obey actAllow limits
+     }
+ 
