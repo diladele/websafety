@@ -21,6 +21,9 @@ tar -xvzf ecap_clamav_adapter-2.0.0.tar.gz
 # patch the CL_SCAN_STDOPT error
 patch ecap_clamav_adapter-2.0.0/src/ClamAv.cc < ClamAv.cc.patch
 
+# and RPI compilation
+patch ecap_clamav_adapter-2.0.0/src/Xaction.cc < Xaction.cc.patch
+
 # change into working dir
 pushd ecap_clamav_adapter-2.0.0
 
