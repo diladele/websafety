@@ -27,7 +27,8 @@ apt-get -y install \
     libssl-dev \
     libdbi-perl \
     libecap3 \
-    libecap3-dev
+    libecap3-dev \
+    libsystemd-dev
 
 # install build dependences for squid
 apt-get -y build-dep squid
