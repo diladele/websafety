@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="7.3.0"
-MINOR="CC55"
+MAJOR="7.4.0"
+MINOR="894A"
 ARCH="amd64"
 
 # get latest build

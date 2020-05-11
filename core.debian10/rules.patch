@@ -1,6 +1,15 @@
---- rules	2018-01-23 10:39:24.000000000 +0100
-+++ rules.new	2018-02-07 22:07:59.285432839 +0100
-@@ -30,6 +30,9 @@
+--- rules.orig	2020-02-10 13:12:54.000000000 +0000
++++ rules	2020-04-13 07:49:07.329340183 +0100
+@@ -4,7 +4,7 @@
+ export DEB_CFLAGS_MAINT_APPEND = -Wall
+ 
+ DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+-ifneq (,$(filter $(DEB_HOST_ARCH), armel m68k mips mipsel powerpc powerpcspe sh4))
++ifneq (,$(filter $(DEB_HOST_ARCH), armhf armel m68k mips mipsel powerpc powerpcspe sh4))
+ 	DEB_LDFLAGS_MAINT_APPEND += -latomic
+ endif
+ export DEB_LDFLAGS_MAINT_APPEND
+@@ -41,6 +41,9 @@
  		--enable-delay-pools \
  		--enable-cache-digests \
  		--enable-icap-client \

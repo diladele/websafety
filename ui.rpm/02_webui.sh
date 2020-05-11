@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default params
-MAJOR="7.3.0"
-MINOR="E3B2"
+MAJOR="7.4.0"
+MINOR="A069"
 ARCH="amd64"
 OSNAME="centos8"
 
