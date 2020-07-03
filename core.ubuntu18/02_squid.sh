@@ -10,7 +10,7 @@ fi
 wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
-echo "deb http://squid411.diladele.com/ubuntu/ bionic main" \
+echo "deb http://squid412.diladele.com/ubuntu/ bionic main" \
 	> /etc/apt/sources.list.d/squid411.diladele.com.list
 
 # and install
