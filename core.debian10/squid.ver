@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 # set squid version
-SQUID_VER="4.11"
-SQUID_PKG="${SQUID_VER}-2"
+SQUID_VER="4.12"
+SQUID_PKG="${SQUID_VER}-1"
