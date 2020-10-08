@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# install stock squid with ecap libs
+# install stock squid with ecap libs - look for gotcha at https://github.com/diladele/websafety/issues/1300
 dnf -y install squid libecap libecap-devel
 
 # make squid autostart after reboot
