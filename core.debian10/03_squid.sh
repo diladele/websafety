@@ -31,7 +31,7 @@ wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_PKG}.debian.t
 dpkg-source -x squid_${SQUID_PKG}.dsc
 
 # modify configure options in debian/rules, add --enable-ssl --enable-ssl-crtd
-patch squid-${SQUID_VER}/debian/rules < ../../rules.patch
+patch squid-${SQUID_VER}/debian/rules < ../../rules.patch || exit 1
 
 # build the package
 cd squid-${SQUID_VER} && dpkg-buildpackage -rfakeroot -b
