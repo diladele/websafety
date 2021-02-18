@@ -10,13 +10,13 @@ fi
 wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
-echo "deb http://squid413.diladele.com/ubuntu/ bionic main" \
-	> /etc/apt/sources.list.d/squid413.diladele.com.list
+echo "deb https://squid413-ubuntu20.diladele.com/ubuntu/ focal main" \
+	> /etc/apt/sources.list.d/squid413-ubuntu20.diladele.com.list
 
 # and install
 apt-get update && apt-get install -y \
 	squid-common \
-	squid \
+	squid-openssl \
 	squidclient \
 	libecap3 libecap3-dev
 

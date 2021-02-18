@@ -6,12 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-#
-# be sure to first run
-#
-# 	bash build_01.sh
-# 	bash build_02.sh
-#
+# we need this to pass the Azure Certification Tool tests
+sed -i 's/ClientAliveInterval 120/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 
 #  create azure license update service that runs exactly once
 cp appliance/azure/wslicd.service /etc/systemd/system/wslicd.service

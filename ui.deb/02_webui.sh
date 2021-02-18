@@ -14,7 +14,7 @@ ARCH="amd64"
 # default os
 OSNAME="debian10"
 if [ -f "/etc/lsb-release" ]; then
-    OSNAME="ubuntu18"
+    OSNAME="ubuntu20"
 fi
 
 # download

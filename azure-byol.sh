@@ -6,12 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-#
-# be sure to first run
-#
-# 	bash build_01.sh
-# 	bash build_02.sh
-#
+# we need this to pass the Azure Certification Tool tests
+sed -i 's/ClientAliveInterval 120/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 
 # set new license
 if [ -f license.pem ]; then
