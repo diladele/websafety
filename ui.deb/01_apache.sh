@@ -16,7 +16,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # install django and all other modules
-pip3 install django==3.1.6
+pip3 install django==3.1.7
 pip3 install pytz
 pip3 install tld
 pip3 install requests
