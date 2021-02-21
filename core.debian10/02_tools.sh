@@ -32,3 +32,9 @@ apt-get -y install \
 
 # install build dependences for squid
 apt-get -y build-dep squid
+
+# we need distro module in python 3.7, so get pip
+apt install -y python3-pip
+
+# and install it
+pip3 install distro

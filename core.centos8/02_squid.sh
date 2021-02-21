@@ -12,3 +12,6 @@ dnf -y install squid libecap libecap-devel
 # make squid autostart after reboot
 systemctl enable squid
 systemctl restart squid
+
+# we need distro module in Python < 3.8 (ubuntu20)
+pip3 install distro
