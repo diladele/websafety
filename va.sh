@@ -6,12 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-#
-# be sure to first run
-#
-# 	bash build_01.sh
-# 	bash build_02.sh
-#
+# only in our va we change cloud config to preserve hostname, otherwise our UI cannot set it
+sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
 
 # install va
 pushd appliance/va
@@ -26,7 +22,7 @@ fi
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"
-echo "SUCCESS --- Virtual Appliance is ready --"
+echo "SUCCESS --- Virtual Appliance is ready, be sure to REBOOT ONCE BEFORE EXPORTING! --"
 cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"

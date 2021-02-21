@@ -8,13 +8,13 @@ fi
 
 # default arch and version
 MAJOR="7.6.0"
-MINOR="3D3F"
+MINOR="DD8B"
 ARCH="amd64"
 
 # default os
 OSNAME="debian10"
 if [ -f "/etc/lsb-release" ]; then
-    OSNAME="ubuntu18"
+    OSNAME="ubuntu20"
 fi
 
 # download
