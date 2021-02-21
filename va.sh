@@ -22,7 +22,7 @@ fi
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"
-echo "SUCCESS --- Virtual Appliance is ready --"
+echo "SUCCESS --- Virtual Appliance is ready, be sure to REBOOT ONCE BEFORE EXPORTING! --"
 cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"
