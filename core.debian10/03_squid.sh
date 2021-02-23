@@ -12,9 +12,6 @@ rm -R build/squid
 # we will be working in a subfolder make it
 mkdir -p build/squid
 
-# copy the patches to the working folder
-cp rules.patch build/squid/rules.patch
-
 # set squid version
 source squid.ver
 
@@ -30,11 +27,8 @@ wget http://http.debian.net/debian/pool/main/s/squid/squid_${SQUID_PKG}.debian.t
 # unpack the source package
 dpkg-source -x squid_${SQUID_PKG}.dsc
 
-# modify configure options in debian/rules, add --enable-ssl --enable-ssl-crtd
-patch squid-${SQUID_VER}/debian/rules < ../../rules.patch || exit 1
-
 # build the package
-cd squid-${SQUID_VER} && dpkg-buildpackage -rfakeroot -b
+cd squid-${SQUID_VER} && dpkg-buildpackage -rfakeroot -b -us -uc
 
 # and revert
 popd
