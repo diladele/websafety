@@ -13,5 +13,8 @@ dnf -y install squid libecap libecap-devel
 systemctl enable squid
 systemctl restart squid
 
-# we need distro module in Python < 3.8 (ubuntu20)
+# install Python 3
+dnf -y install python3
+
+# and distro module for it
 pip3 install distro
