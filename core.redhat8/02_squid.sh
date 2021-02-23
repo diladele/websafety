@@ -13,8 +13,8 @@ dnf -y install squid libecap libecap-devel
 systemctl enable squid
 systemctl restart squid
 
-# install Python 3
-dnf -y install python3
+# install some useful packages
+dnf -y install krb5-workstation mc net-tools python3 python3-pip
 
-# and distro module for it
+# and distro module for python
 pip3 install distro
