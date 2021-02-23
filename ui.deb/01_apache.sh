@@ -26,7 +26,7 @@ pip3 install PyOpenSSL
 pip3 install psutil
 pip3 install jinja2
 
-# there are some bugs in Ubuntu 18 and Python3 environment concerning the LDAP module,
+# there are some bugs in Ubuntu 20 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
 pip3 uninstall ldap
 pip3 uninstall ldap3

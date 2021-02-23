@@ -14,6 +14,6 @@ Main features of the application are:
 - removes annoying web ads 
 - protects online privacy by disallowing access to web trackers
 
-Web Safety runs on modern versions of CentOS, Debian/Raspberry PI and Ubuntu Linux, providing comprehensive web filtering solution easily manageble from Web UI.
+Web Safety runs on modern versions of RedHat, CentOS, Debian/Raspberry PI and Ubuntu Linux, providing comprehensive web filtering solution easily manageble from Web UI.
 
 More information at https://www.diladele.com
