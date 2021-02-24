@@ -6,6 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# change cloud config to preserve hostname, otherwise our UI cannot set it
+sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
+
 # allow root login for ssh
 sed -i "s/#\{0,1\}PermitRootLogin *.*$/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
@@ -35,4 +38,12 @@ cp wsissue.service /etc/systemd/system/wsissue.service
 # enable it
 systemctl enable wsissue.service
 
+# finally let ui to manage the network
+sudo -u websafety python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu20
+
+# and sync ui data and actual files in disk
+sudo -u proxy python3 /opt/websafety-ui/var/console/generate.py --core
+sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py --ui
+
+#
 echo "Success, run next step please."

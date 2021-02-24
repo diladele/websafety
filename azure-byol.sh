@@ -9,6 +9,9 @@ fi
 # we need this to pass the Azure Certification Tool tests
 sed -i 's/ClientAliveInterval 120/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 
+# disable network management from Admin UI on Azure
+patch /opt/websafety-ui/var/console/node/models.py < appliance/azure/models.py.patch
+
 # set new license
 if [ -f license.pem ]; then
     sudo -u proxy cp license.pem /opt/websafety/etc/license.pem

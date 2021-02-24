@@ -9,6 +9,9 @@ fi
 # we need this to pass the Azure Certification Tool tests
 sed -i 's/ClientAliveInterval 120/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 
+# disable network management from Admin UI on Azure
+patch /opt/websafety-ui/var/console/node/models.py < appliance/azure/models.py.patch
+
 #  create azure license update service that runs exactly once
 cp appliance/azure/wslicd.service /etc/systemd/system/wslicd.service
 

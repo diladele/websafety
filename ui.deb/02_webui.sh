@@ -23,10 +23,7 @@ wget http://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNA
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
-# let ui to manage the network
-sudo -u websafety python3 /opt/websafety-ui/var/console/utils.py --network=$OSNAME
-
-# sync ui and actual files in disk
+# sync ui and actual files in disk (note UI does not manage network by default)
 sudo -u proxy python3 /opt/websafety-ui/var/console/generate.py --core
 sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py --ui
 

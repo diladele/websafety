@@ -6,10 +6,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# only in our va we change cloud config to preserve hostname, otherwise our UI cannot set it
-sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
-
-# install va
+# install va scripts
 pushd appliance/va
 bash 01_login.sh && bash 02_harden.sh
 popd
