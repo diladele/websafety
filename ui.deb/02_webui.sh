@@ -8,11 +8,11 @@ fi
 
 # default arch and version
 MAJOR="7.6.0"
-MINOR="EF6B"
+MINOR="8B30"
 ARCH="amd64"
 
 # default os
-OSNAME="debian10"
+OSNAME="debian11"
 if [ -f "/etc/lsb-release" ]; then
     OSNAME="ubuntu20"
 fi

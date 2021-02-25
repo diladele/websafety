@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="7.6.0"
-MINOR="97FE"
+MINOR="1655"
 ARCH="amd64"
 
 # get latest build
@@ -17,7 +17,7 @@ if [ $? -eq 0 ]; then
     ARCH="armhf"
 fi
 
-wget http://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/debian10/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget http://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/debian11/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install it
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
