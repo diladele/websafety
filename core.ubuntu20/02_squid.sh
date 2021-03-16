@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # add diladele apt key
-wget -qO - http://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
+wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
 echo "deb https://squid413-ubuntu20.diladele.com/ubuntu/ focal main" \

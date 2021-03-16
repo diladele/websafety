@@ -11,7 +11,7 @@ MAJOR="7.6.0"
 MINOR="CE99"
 
 # get latest build
-curl -O http://packages.diladele.com/websafety-core/$MAJOR.$MINOR/amd64/release/redhat8/websafety-${MAJOR}-${MINOR}.x86_64.rpm
+curl -O https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/amd64/release/redhat8/websafety-${MAJOR}-${MINOR}.x86_64.rpm
 
 # and install it
 dnf -y install websafety-${MAJOR}-${MINOR}.x86_64.rpm

@@ -18,7 +18,7 @@ if [ -f "/etc/lsb-release" ]; then
 fi
 
 # download
-wget http://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNAME/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
+wget https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNAME/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
