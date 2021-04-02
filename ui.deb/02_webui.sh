@@ -8,7 +8,7 @@ fi
 
 # default arch and version
 MAJOR="7.6.0"
-MINOR="F277"
+MINOR="5D82"
 ARCH="amd64"
 
 # default os
