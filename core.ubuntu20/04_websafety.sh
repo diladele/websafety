@@ -7,12 +7,12 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install web safety core daemons
-MAJOR="7.5.0"
-MINOR="0ADC"
+MAJOR="7.6.0"
+MINOR="092D"
 ARCH="amd64"
 
 # download
-wget http://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu18/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu20/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb

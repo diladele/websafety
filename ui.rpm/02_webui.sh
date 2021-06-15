@@ -7,13 +7,13 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default params
-MAJOR="7.5.0"
-MINOR="AF41"
+MAJOR="7.6.0"
+MINOR="5D82"
 ARCH="amd64"
-OSNAME="centos8"
+OSNAME="redhat8"
 
 # download
-curl -O http://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/centos8/websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm
+curl -O https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/redhat8/websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm
 
 # install
 dnf -y install websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm

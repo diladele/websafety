@@ -6,14 +6,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-#
-# be sure to first run
-#
-# 	bash build_01.sh
-# 	bash build_02.sh
-#
-
-# install va
+# install va scripts
 pushd appliance/va
 bash 01_login.sh && bash 02_harden.sh
 popd
@@ -26,7 +19,7 @@ fi
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"
-echo "SUCCESS --- Virtual Appliance is ready --"
+echo "SUCCESS --- Virtual Appliance is ready, be sure to REBOOT ONCE BEFORE EXPORTING! --"
 cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"

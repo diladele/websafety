@@ -7,26 +7,23 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arch and version
-MAJOR="7.5.0"
-MINOR="AF41"
+MAJOR="7.6.0"
+MINOR="5D82"
 ARCH="amd64"
 
 # default os
-OSNAME="debian10"
+OSNAME="debian11"
 if [ -f "/etc/lsb-release" ]; then
-    OSNAME="ubuntu18"
+    OSNAME="ubuntu20"
 fi
 
 # download
-wget http://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNAME/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
+wget https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNAME/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
-# let ui to manage the network
-sudo -u websafety python3 /opt/websafety-ui/var/console/utils.py --network=$OSNAME
-
-# sync ui and actual files in disk
+# sync ui and actual files in disk (note UI does not manage network by default)
 sudo -u proxy python3 /opt/websafety-ui/var/console/generate.py --core
 sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py --ui
 

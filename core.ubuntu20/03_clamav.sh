@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install clamav
-apt-get install -y clamav clamav-daemon libclamav-dev
+apt-get install -y clamav clamav-daemon libclamav-dev g++ make
 
 # from now on every error is fatal
 set -e

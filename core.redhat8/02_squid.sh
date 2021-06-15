@@ -12,3 +12,9 @@ dnf -y install squid libecap libecap-devel
 # make squid autostart after reboot
 systemctl enable squid
 systemctl restart squid
+
+# install some useful packages
+dnf -y install krb5-workstation mc net-tools python3 python3-pip
+
+# and distro module for python
+pip3 install distro

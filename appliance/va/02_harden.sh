@@ -13,7 +13,7 @@ apt -y autoremove
 sudo echo root:Passw0rd | sudo chpasswd
 
 # disable the user we used to build the virtual appliance
-passwd user -l
+passwd builder -l
 
 # exit successfully
 echo "VA generated successfully, please reboot"
