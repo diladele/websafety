@@ -16,7 +16,7 @@ systemctl enable httpd
 dnf -y install python3-devel redhat-rpm-config
 
 # install python django for web ui
-pip3 install django==3.2.7
+pip3 install django==3.2.9
 pip3 install pytz
 pip3 install tld
 pip3 install requests
