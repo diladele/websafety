@@ -28,7 +28,7 @@ echo "Hard Disk Size      $DISKSZ"
 echo
 echo "Appliance Version   $VA_VER"
 echo "Squid Version       $SQUID_VER"
-echo "System Username     root"
+echo "System Username     root (can only login in console, ssh network login is disabled)"
 echo "System Password     Passw0rd (or whatever you set it to when creating this appliance)"
 echo "Installation Dir    /opt/websafety"
 echo 
