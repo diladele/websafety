@@ -8,9 +8,9 @@ fi
 
 # default params
 MAJOR="8.0.0"
-MINOR="F953"
+MINOR="62B8"
 ARCH="amd64"
-OSNAME="redhat8"
+OSNAME="redhat9"
 
 # download
 curl -O https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/redhat8/websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm
