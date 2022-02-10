@@ -8,7 +8,7 @@ fi
 
 # default params
 MAJOR="8.0.0"
-MINOR="2768"
+MINOR="8D9A"
 ARCH="amd64"
 OSNAME="redhat8"
 
