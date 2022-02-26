@@ -6,11 +6,14 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# our va is in amsterdam timezone
+timedatectl set-timezone "Europe/Amsterdam" 
+
 # change cloud config to preserve hostname, otherwise our UI cannot set it
 sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
 
-# allow root login for ssh
-sed -i "s/#\{0,1\}PermitRootLogin *.*$/PermitRootLogin yes/g" /etc/ssh/sshd_config
+# we do not allow root login for ssh any more in virtual appliance (use terminal console)
+# sed -i "s/#\{0,1\}PermitRootLogin *.*$/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 # install vm tools (only if vmware is detected)
 dmidecode -s system-product-name | grep -i "vmware" > /dev/null

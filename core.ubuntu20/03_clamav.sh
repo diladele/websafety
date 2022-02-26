@@ -13,7 +13,7 @@ apt-get install -y clamav clamav-daemon libclamav-dev g++ make pkg-config
 set -e
 
 # download the sources
-wget http://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
+wget https://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
 
 # unpack
 tar -xvzf ecap_clamav_adapter-2.0.0.tar.gz

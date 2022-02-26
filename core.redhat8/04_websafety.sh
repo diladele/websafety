@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="7.6.0"
-MINOR="092D"
+MAJOR="8.0.0"
+MINOR="0C43"
 
 # get latest build
 curl -O https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/amd64/release/redhat8/websafety-${MAJOR}-${MINOR}.x86_64.rpm
