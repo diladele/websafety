@@ -14,7 +14,7 @@ fi
 #
 
 # switch the activation type to AWS instead of default Azure
-sed -i "s/activate=azure/activate=aws/g" /etc/cron.hourly/websafety_license
+sed -i "s/deploy=azure/deploy=aws/g" /etc/cron.hourly/websafety_license
 
 #  create aws license update service that runs exactly once
 cp appliance/aws/wslicd.service /etc/systemd/system/wslicd.service
