@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arch and version
-MAJOR="8.0.0"
-MINOR="072C"
+MAJOR="8.1.0"
+MINOR="EC4A"
 ARCH="amd64"
 
 # default os
@@ -30,9 +30,21 @@ sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py --ui
 # relabel folder
 chown -R websafety:websafety /opt/websafety-ui
 
-# integrate with apache
+# Admin UI now runs using HTTPS so to integrate with apache, first enable the HTTPS module
+a2enmod ssl
+
+# then generate the self signed certificates valid for next 5 years
+sudo -u websafety openssl \
+    req -x509 -nodes -days 1825 -newkey rsa:2048 \
+    -keyout /opt/websafety-ui/etc/admin_ui.key \
+    -out /opt/websafety-ui/etc/admin_ui.crt \
+    -subj "/C=NL/ST=Noord-Holland/O=Example Ltd./OU=IT/CN=proxy.example.lan/emailAddress=support@example.lan"
+
+# disable the default site
 a2dissite 000-default
+
+# and enable web safety
 a2ensite websafety
 
-# and restart all daemons
+# finally restart all daemons
 service apache2 restart
