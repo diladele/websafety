@@ -8,7 +8,7 @@ fi
 
 # default arch and version
 MAJOR="8.1.0"
-MINOR="EC4A"
+MINOR="DF38"
 ARCH="amd64"
 
 # default os
@@ -30,20 +30,11 @@ sudo -u websafety python3 /opt/websafety-ui/var/console/generate.py --ui
 # relabel folder
 chown -R websafety:websafety /opt/websafety-ui
 
-# Admin UI now runs using HTTPS so to integrate with apache, first enable the HTTPS module
+# Admin UI now runs using HTTPS so to integrate with apache, we need to enable the HTTPS
 a2enmod ssl
 
-# then generate the self signed certificates valid for next 5 years
-sudo -u websafety openssl \
-    req -x509 -nodes -days 1825 -newkey rsa:2048 \
-    -keyout /opt/websafety-ui/etc/admin_ui.key \
-    -out /opt/websafety-ui/etc/admin_ui.crt \
-    -subj "/C=NL/ST=Noord-Holland/O=Example Ltd./OU=IT/CN=proxy.example.lan/emailAddress=support@example.lan"
-
-# disable the default site
+# disable the default site and enable web safety
 a2dissite 000-default
-
-# and enable web safety
 a2ensite websafety
 
 # finally restart all daemons
