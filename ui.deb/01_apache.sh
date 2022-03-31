@@ -25,6 +25,7 @@ pip3 install PyYAML
 pip3 install PyOpenSSL
 pip3 install psutil
 pip3 install jinja2
+pip3 install msal
 
 # there are some bugs in Ubuntu 20 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
