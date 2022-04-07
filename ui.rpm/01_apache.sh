@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install apache web server
-dnf -y install httpd httpd-devel
+dnf -y install httpd httpd-devel mod_ssl openssl
 
 # make apache autostart on reboot
 systemctl enable httpd
@@ -31,9 +31,14 @@ pip3 install psutil
 pip3 install python-ldap
 pip3 install mod-wsgi
 pip3 install jinja2
+pip3 install msal
 
 # enable the mod_wsgi module for python3 in apache
 /usr/local/bin/mod_wsgi-express install-module > /etc/httpd/conf.modules.d/02-wsgi.conf
+
+# disable default HTTP and HTTPS sites
+mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.original
+mv /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.original
 
 # and restart apache
 systemctl restart httpd
