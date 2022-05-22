@@ -13,7 +13,7 @@ subscription-manager repos --enable "codeready-builder-for-rhel-8-x86_64-rpms"
 dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 
 # install clamav
-dnf -y install clamav clamav-update clamav-devel gcc-c++ patch make
+dnf -y install clamav clamav-update clamav-devel gcc-c++ patch make tar
 
 # from now on every error is fatal
 set -e
