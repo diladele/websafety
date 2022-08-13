@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default params
-MAJOR="8.1.0"
-MINOR="442D"
+MAJOR="8.2.0"
+MINOR="0C15"
 ARCH="amd64"
 OSNAME="redhat8"
 
