@@ -8,12 +8,11 @@ fi
 
 # default params
 MAJOR="8.2.0"
-MINOR="76DA"
+MINOR="BC5E"
 ARCH="amd64"
-OSNAME="redhat8"
 
 # download
-curl -O https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNAME/websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm
+curl -O https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/redhat9/websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm
 
 # install
 dnf -y install websafety-ui-${MAJOR}-${MINOR}.x86_64.rpm
