@@ -19,11 +19,11 @@ dnf -y install python3-devel redhat-rpm-config
 dnf -y module install rust-toolset
 
 # install python django for web ui
-pip3 install django==3.2.11
+pip3 install django==4.1
 pip3 install pytz
 pip3 install tld
 pip3 install requests
-pip3 install pandas
+pip3 install pandas==1.4.2
 pip3 install PyYAML
 pip3 install setuptools-rust
 pip3 install PyOpenSSL

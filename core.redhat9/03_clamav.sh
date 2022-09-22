@@ -7,13 +7,14 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # we need epel packages for clamav (see https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F)
-subscription-manager repos --enable "codeready-builder-for-rhel-8-x86_64-rpms"
+subscription-manager repos --enable "codeready-builder-for-rhel-9-x86_64-rpms"
                                      
 # install it
-dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 
 # install clamav
-dnf -y install clamav clamav-update clamav-devel gcc-c++ patch make tar
+dnf -y install gcc-c++ patch make tar
+dnf -y install clamav clamav-update clamav-devel
 
 # from now on every error is fatal
 set -e
