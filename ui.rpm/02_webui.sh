@@ -8,7 +8,7 @@ fi
 
 # default params
 MAJOR="8.3.0"
-MINOR="54AA"
+MINOR="C0A9"
 ARCH="amd64"
 
 # download
