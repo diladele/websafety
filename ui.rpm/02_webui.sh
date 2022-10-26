@@ -8,7 +8,7 @@ fi
 
 # default params
 MAJOR="8.3.0"
-MINOR="C0A9"
+MINOR="BFDA"
 ARCH="amd64"
 
 # download
