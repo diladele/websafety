@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arch and version
-MAJOR="8.2.0"
-MINOR="6328"
+MAJOR="8.3.0"
+MINOR="6942"
 ARCH="amd64"
 
 # default os

@@ -10,8 +10,8 @@ fi
 wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
-echo "deb https://squid55.diladele.com/ubuntu/ focal main" \
-	> /etc/apt/sources.list.d/squid55.diladele.com.list
+echo "deb https://squid57.diladele.com/ubuntu/ focal main" \
+	> /etc/apt/sources.list.d/squid57.diladele.com.list
 
 # and install
 apt-get update && apt-get install -y \
