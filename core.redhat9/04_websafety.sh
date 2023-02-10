@@ -8,7 +8,7 @@ fi
 
 # default arc
 MAJOR="8.4.0"
-MINOR="C99A"
+MINOR="68EF"
 
 # get latest build
 curl -O https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/amd64/release/redhat9/websafety-${MAJOR}-${MINOR}.x86_64.rpm
