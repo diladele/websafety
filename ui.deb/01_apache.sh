@@ -27,6 +27,7 @@ pip3 install psutil
 pip3 install jinja2
 pip3 install msal
 pip3 install cryptography==35.0.0
+pip3 install google-auth google-auth-oauthlib
 
 # there are some bugs in Ubuntu 20 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
