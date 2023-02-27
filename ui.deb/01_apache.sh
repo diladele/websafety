@@ -16,7 +16,7 @@ if [ $? -eq 0 ]; then
 fi
 
 # install django and all other modules
-pip3 install django==4.1.2
+pip3 install django==4.1.6
 pip3 install pytz
 pip3 install tld
 pip3 install requests
@@ -26,6 +26,7 @@ pip3 install PyOpenSSL
 pip3 install psutil
 pip3 install jinja2
 pip3 install msal
+pip3 install cryptography==35.0.0
 
 # there are some bugs in Ubuntu 20 and Python3 environment concerning the LDAP module,
 # so we fix them by removing obsolete ldap modules and reinstalling the correct one
