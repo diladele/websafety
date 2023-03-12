@@ -32,7 +32,7 @@ pip3 install python-ldap
 pip3 install mod-wsgi
 pip3 install jinja2
 pip3 install msal
-pip3 install cryptography==35.0.0
+pip3 install cryptography
 pip3 install google-auth google-auth-oauthlib
 
 # enable the mod_wsgi module for python3 in apache
