@@ -6,9 +6,6 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# refresh the subscriptions just in case
-subscription-manager refresh
-
 # update the system
 dnf -y update
 
