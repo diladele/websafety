@@ -13,7 +13,7 @@ fi
 cp -f squid.conf /etc/squid/squid.conf
 
 # re-initialize storage for mimicked ssl certificates
-SSL_DB=/var/spool/squid_ssldb
+SSL_DB=/var/spool/squid/ssldb
 if [ -d $SSL_DB ]; then
     rm -Rf $SSL_DB
 fi
