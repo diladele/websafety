@@ -12,7 +12,7 @@ MINOR="672B"
 ARCH="amd64"
 
 # default os
-OSNAME="debian11"
+OSNAME="debian12"
 if [ -f "/etc/lsb-release" ]; then
     OSNAME="ubuntu20"
 fi
