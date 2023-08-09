@@ -11,10 +11,6 @@ apt install -y python3.8-venv python3-dev libjpeg-dev zlib1g-dev libldap2-dev li
 
 # create a virtual environment in the /opt/websafety-ui folder
 python3 -m venv /opt/websafety-ui/env
-#pip3 install virtualenv
-
-
-#cd /opt/websafety-ui && virtualenv env
 
 # install required packages into virtual environment
 /opt/websafety-ui/env/bin/pip3 install \
@@ -39,4 +35,3 @@ sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/consol
 
 # relabel folder just in case
 chown -R websafety:websafety /opt/websafety-ui
-
