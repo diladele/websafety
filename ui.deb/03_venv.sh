@@ -20,21 +20,7 @@ fi
 python3 -m venv /opt/websafety-ui/env
 
 # install required packages into virtual environment
-/opt/websafety-ui/env/bin/pip3 install \
-   django==4.1.6 \
-   cryptography \
-   google-auth \
-   google-auth-oauthlib \
-   jinja2 \
-   msal \
-   pandas==1.4.2 \
-   psutil \
-   PyOpenSSL \
-   python-ldap \
-   pytz \
-   PyYAML \
-   requests \
-   tld
+/opt/websafety-ui/env/bin/pip3 install -r /opt/websafety-ui/var/console/requirements.txt
 
 # sync ui and actual files in disk (note UI does not manage network by default)
 sudo -u proxy /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/generate.py --core
