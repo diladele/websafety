@@ -16,7 +16,10 @@ popd
 
 # install web safety ui
 pushd ui.deb
-bash 01_apache.sh && bash 02_webui.sh
+bash 01_apache.sh && \
+bash 02_webui.sh && \
+bash 03_venv.sh && \
+bash 04_integrate.sh
 popd
 
 # tell 
