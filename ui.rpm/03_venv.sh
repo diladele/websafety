@@ -7,10 +7,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install python 3 development libs
-dnf -y install python3-devel redhat-rpm-config
+dnf -y install python3-devel redhat-rpm-config python3-pyOpenSSL
 
 # rust is required for PyOpenSSL
-dnf -y module install rust-toolset
+# dnf -y module install rust-toolset
 
 # create a virtual environment in the /opt/websafety-ui folder
 python3 -m venv /opt/websafety-ui/env
