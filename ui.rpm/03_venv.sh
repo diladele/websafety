@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install python 3 development libs
-dnf -y install python3-devel redhat-rpm-config python3-pyOpenSSL
+dnf -y install python3-devel redhat-rpm-config python3-pyOpenSSL python3-requests
 
 # rust is required for PyOpenSSL
 # dnf -y module install rust-toolset
