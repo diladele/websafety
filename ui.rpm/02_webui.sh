@@ -11,7 +11,7 @@ python3 -m venv /opt/websafety-ui/env
 
 # default params
 MAJOR="8.6.0"
-MINOR="ED3C"
+MINOR="757F"
 ARCH="amd64"
 
 # download
