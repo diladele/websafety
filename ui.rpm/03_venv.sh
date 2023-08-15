@@ -12,6 +12,9 @@ dnf -y install python3-devel redhat-rpm-config
 # rust is required for PyOpenSSL
 dnf -y module install rust-toolset
 
+# create a virtual environment in the /opt/websafety-ui folder
+python3 -m venv /opt/websafety-ui/env
+
 # install required packages into virtual environment
 /opt/websafety-ui/env/bin/pip3 install -r /opt/websafety-ui/var/console/requirements.txt
 

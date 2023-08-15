@@ -7,10 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install apache web server
-dnf -y install httpd httpd-devel mod_ssl openssl
+dnf -y install httpd httpd-devel mod_ssl openssl python3-mod_wsgi 
 
 # make apache autostart on reboot
 systemctl enable httpd
-
-# enable the mod_wsgi module for python3 in apache
-/usr/local/bin/mod_wsgi-express install-module > /etc/httpd/conf.modules.d/02-wsgi.conf

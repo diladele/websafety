@@ -6,12 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# create a virtual environment in the /opt/websafety-ui folder - it has to be here
-python3 -m venv /opt/websafety-ui/env
-
 # default params
 MAJOR="8.6.0"
-MINOR="757F"
+MINOR="4591"
 ARCH="amd64"
 
 # download
