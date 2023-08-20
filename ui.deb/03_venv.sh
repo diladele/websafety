@@ -13,7 +13,7 @@ apt install -y python3-dev libjpeg-dev zlib1g-dev libldap2-dev libsasl2-dev libs
 if [ -f "/etc/lsb-release" ]; then
    apt install -y python3.8-venv
 else
-   apt install -y python3.11-venv
+   apt install -y python3.11-venv python3-openssl
 fi
 
 # create a virtual environment in the /opt/websafety-ui folder

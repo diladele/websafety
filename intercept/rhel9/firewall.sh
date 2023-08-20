@@ -30,5 +30,8 @@ firewall-cmd --zone=internal --add-port=3126/tcp --permanent
 firewall-cmd --zone=internal --add-port=3127/tcp --permanent
 firewall-cmd --zone=internal --add-port=3128/tcp --permanent
 
+# also allow connections to external DNS server as we use it in the tutorial
+firewall-cmd --zone=internal --add-port=53/udp --permanent
+
 # and copy the direct xml
 cp direct.xml /etc/firewalld/direct.xml
