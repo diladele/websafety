@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arc
-MAJOR="8.5.0"
-MINOR="C85E"
+MAJOR="8.6.0"
+MINOR="2AED"
 ARCH="amd64"
 
 # get latest build
@@ -17,7 +17,7 @@ if [ $? -eq 0 ]; then
     ARCH="armhf"
 fi
 
-wget https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/debian11/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/debian12/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install it
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb

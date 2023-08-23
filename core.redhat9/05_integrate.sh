@@ -26,7 +26,7 @@ chmod o+x /var/log/squid
 chmod -R o+r /var/log/squid
 
 # create storage for generated ssl certificates
-SSL_DB=/var/spool/squid_ssldb
+SSL_DB=/var/spool/squid/ssldb
 if [ -d $SSL_DB ]; then
 	rm -Rf $SSL_DB
 fi

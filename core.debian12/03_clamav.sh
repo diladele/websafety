@@ -19,6 +19,7 @@ wget https://www.e-cap.org/archive/ecap_clamav_adapter-2.0.0.tar.gz
 tar -xvzf ecap_clamav_adapter-2.0.0.tar.gz
 
 # patch the CL_SCAN_STDOPT error
+cp ecap_clamav_adapter-2.0.0/src/ClamAv.cc ecap_clamav_adapter-2.0.0/src/ClamAv.cc.old
 patch ecap_clamav_adapter-2.0.0/src/ClamAv.cc < ClamAv.cc.patch
 
 # and RPI compilation
