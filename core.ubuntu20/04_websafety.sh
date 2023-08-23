@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install web safety core daemons
-MAJOR="8.6.0"
+MAJOR="8.7.0"
 MINOR="2AED"
 ARCH="amd64"
 
