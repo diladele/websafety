@@ -8,7 +8,7 @@ fi
 
 # install web safety core daemons
 MAJOR="8.7.0"
-MINOR="4B8D"
+MINOR="6BCF"
 ARCH="amd64"
 
 # download
