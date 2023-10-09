@@ -3,7 +3,7 @@
 CPUNUM=`cat /proc/cpuinfo | grep processor | wc -l`
 RAMNFO=`free -mh | grep Mem: | awk {'print $2, "total,", $4, "free" '}`
 DISKSZ=`df -h | grep "/$" | awk {'print $2, "total,", $4, "free" '}`
-VA_VER=`/opt/websafety/bin/ldap --version`
+VA_VER=`cat /opt/websafety/etc/version.json  | jq -r '.version'`
 SQUID_VER=`/usr/sbin/squid -v | grep "Version " | awk {'print $4'}`
 
 # some string manupulation magic

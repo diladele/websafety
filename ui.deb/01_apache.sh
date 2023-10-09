@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install apache and mod_wsgi and some other useful programs
-apt -y install apache2 libapache2-mod-wsgi-py3 htop mc net-tools
+apt -y install apache2 libapache2-mod-wsgi-py3 htop mc net-tools jq
 
 # install kerberos client libraries
 export DEBIAN_FRONTEND=noninteractive 

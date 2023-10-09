@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install apache web server
-dnf -y install httpd httpd-devel mod_ssl openssl python3-mod_wsgi 
+dnf -y install httpd httpd-devel mod_ssl openssl python3-mod_wsgi jq
 
 # make apache autostart on reboot
 systemctl enable httpd
