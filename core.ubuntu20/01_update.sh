@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # add universe repo
-add-apt-repository universe
+add-apt-repository -y universe
 
 # update and upgrade
 apt update && apt -y upgrade
