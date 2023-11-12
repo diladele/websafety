@@ -11,7 +11,7 @@ apt install -y python3-dev libjpeg-dev zlib1g-dev libldap2-dev libsasl2-dev libs
 
 # install different command on debian 12 or ubuntu
 if [ -f "/etc/lsb-release" ]; then
-   apt install -y python3.8-venv
+   apt install -y python3.10-venv
 else
    apt install -y python3.11-venv python3-openssl
 fi
