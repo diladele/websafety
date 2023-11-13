@@ -6,8 +6,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# install clamav
-apt-get install -y clamav clamav-daemon libclamav-dev g++ make pkg-config
+# install clamav and some other tools
+apt install -y clamav clamav-daemon libclamav-dev g++ make pkg-config patch dmidecode
 
 # from now on every error is fatal
 set -e
