@@ -2,8 +2,8 @@
 
 # all packages are installed as root
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
+    echo "This script must be run as root" 1>&2
+    exit 1
 fi
 
 # our va is in amsterdam timezone
@@ -18,9 +18,16 @@ sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.c
 # install vm tools (only if vmware is detected)
 dmidecode -s system-product-name | grep -i "vmware" > /dev/null
 if [ $? -eq 0 ]; then
-    echo "Detected VMware, installing open-vm-tools..."
-    apt update > /dev/null
-    apt install -y open-vm-tools
+    
+        echo "Detected VMware, installing open-vm-tools..."
+        apt update > /dev/null
+        apt install -y open-vm-tools
+
+
+        # reset the machine-id to force different dhcp addreses - https://kb.vmware.com/s/article/82229
+        echo -n > /etc/machine-id
+        rm /var/lib/dbus/machine-id
+        ln -s /etc/machine-id /var/lib/dbus/machine-id
 fi
 
 # copy the handy monitor.sh script to installation folder
