@@ -7,8 +7,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default params
-MAJOR="8.7.0"
-MINOR="0A95"
+MAJOR="9.0.0"
+MINOR="0864"
 ARCH="amd64"
 
 # download
