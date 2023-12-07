@@ -11,14 +11,14 @@ wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
 echo "deb https://squid65.diladele.com/ubuntu/ jammy main" \
-	> /etc/apt/sources.list.d/squid65.diladele.com.list
+   > /etc/apt/sources.list.d/squid65.diladele.com.list
 
 # and install
 apt-get update && apt-get install -y \
-	squid-common \
-	squid-openssl \
-	squidclient \
-	libecap3 libecap3-dev
+   squid-common \
+   squid-openssl \
+   squidclient \
+   libecap3 libecap3-dev
 
 # change the number of default file descriptors
 OVERRIDE_DIR=/etc/systemd/system/squid.service.d
@@ -31,5 +31,5 @@ rm $OVERRIDE_CNF
 echo "[Service]"         >> $OVERRIDE_CNF
 echo "LimitNOFILE=65535" >> $OVERRIDE_CNF
 
-# and reload the systemd
+# reload the systemd
 systemctl daemon-reload
