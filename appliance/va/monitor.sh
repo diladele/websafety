@@ -9,7 +9,8 @@ tmux split-window -v
 
 # lower pane is for squid log
 tmux select-pane -t 1
-tmux send-keys "tail -f /var/log/squid/access.log" C-m
+tmux send-keys "tail -f /var/log/squid/`date '+%Y-%m-%d'`.access.log" C-m
+
 
 # upper pane is for mc and htop
 tmux select-pane -t 0
