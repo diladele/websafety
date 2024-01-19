@@ -10,8 +10,8 @@ fi
 wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
-echo "deb https://squid65.diladele.com/ubuntu/ jammy main" \
-   > /etc/apt/sources.list.d/squid65.diladele.com.list
+echo "deb https://squid66.diladele.com/ubuntu/ jammy main" \
+   > /etc/apt/sources.list.d/squid66.diladele.com.list
 
 # and install
 apt-get update && apt-get install -y \
