@@ -20,8 +20,9 @@ systemctl enable wslicd.service
 systemctl daemon-reload
 
 # set new cloud license
-if [ -f license-cloud.pem ]; then
-    sudo -u proxy cp license-cloud.pem /opt/websafety/etc/license.pem
+if [ -f /home/builder/license-cloud.pem ]; then
+   cp /home/builder/license-cloud.pem /opt/websafety/etc/license.pem
+   chown proxy:proxy /opt/websafety/etc/license.pem
 fi
 
 # tell 
