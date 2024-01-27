@@ -17,7 +17,7 @@ else
     NEWPASW=`curl http://169.254.169.254/latest/meta-data/instance-id`
 
     # update the password in the database 
-    sudo -u websafety python3 /opt/websafety-ui/var/console/reset_password.py --password=$NEWPASW
+    sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/reset_password.py --password=$NEWPASW
 
     # change the template too so that user known what shall be used as password
     sudo -u websafety sed -i "s/Passw0rd/InstanceID/g" /opt/websafety-ui/var/console/frame/templates/login.html
