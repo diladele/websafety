@@ -19,7 +19,7 @@ fi
 # tell 
 echo "SUCCESS"
 echo "SUCCESS"
-echo "SUCCESS --- Virtual Appliance is ready, be sure to REBOOT ONCE BEFORE EXPORTING! --"
+echo "SUCCESS --- Virtual Appliance is ready, do NOT REBOOT ANY MORE, just export as VA --"
 cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"

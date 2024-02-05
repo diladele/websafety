@@ -13,8 +13,9 @@ sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 180/g' /etc/ssh/sshd_config
 patch /opt/websafety-ui/var/console/node/models.py < appliance/azure/models.py.patch
 
 # set new license
-if [ -f license.pem ]; then
-    sudo -u proxy cp license.pem /opt/websafety/etc/license.pem
+if [ -f /home/builder/license.pem ]; then
+   cp /home/builder/license.pem /opt/websafety/etc/license.pem
+   chown proxy:proxy /opt/websafety/etc/license.pem
 fi
 
 # tell 

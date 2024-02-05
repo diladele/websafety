@@ -7,14 +7,14 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arch and version
-MAJOR="8.7.0"
-MINOR="0A95"
+MAJOR="9.0.0"
+MINOR="1E2A"
 ARCH="amd64"
 
 # default os
 OSNAME="debian12"
 if [ -f "/etc/lsb-release" ]; then
-    OSNAME="ubuntu20"
+    OSNAME="ubuntu22"
 fi
 
 # download

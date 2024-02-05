@@ -6,6 +6,9 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+# install required system packages
+apt -y install cron htop mc net-tools jq vim
+
 # replace the squid config
 if [ ! -f /etc/squid/squid.conf.default ]; then
     cp -f /etc/squid/squid.conf /etc/squid/squid.conf.default
@@ -23,8 +26,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# relabel folder
+# relabel folder and logs
 chown -R proxy:proxy $SSL_DB
+chown -R proxy:proxy /var/log/squid
 
 # and restart all daemons
 systemctl start wsicapd && service squid restart

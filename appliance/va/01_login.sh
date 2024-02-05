@@ -49,7 +49,7 @@ cp wsissue.service /etc/systemd/system/wsissue.service
 systemctl enable wsissue.service
 
 # finally let ui to manage the network
-sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu20
+sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu22
 
 # and sync ui data and actual files in disk
 sudo -u proxy /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/generate.py --core

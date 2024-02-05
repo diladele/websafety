@@ -12,8 +12,9 @@ bash 01_pasw.sh && bash 02_clean.sh
 popd
 
 # set new license
-if [ -f license.pem ]; then
-    sudo -u proxy cp license.pem /opt/websafety/etc/license.pem
+if [ -f /home/ubuntu/license.pem ]; then
+   cp /home/ubuntu/license.pem /opt/websafety/etc/license.pem
+   chown proxy:proxy /opt/websafety/etc/license.pem
 fi
 
 # tell 
