@@ -6,4 +6,4 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-pushd core.ubuntu22 && bash 01_update.sh && popd
+pushd core && bash 01_update.sh && popd

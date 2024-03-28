@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install core modules of web safety
-pushd core.ubuntu22
+pushd core
 bash 02_squid.sh && \
 bash 03_clamav.sh && \
 bash 04_websafety.sh && \
@@ -15,7 +15,7 @@ bash 05_integrate.sh
 popd
 
 # install web safety ui
-pushd ui.deb
+pushd ui
 bash 01_apache.sh && \
 bash 02_webui.sh && \
 bash 03_venv.sh && \
