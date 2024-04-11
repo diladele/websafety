@@ -6,8 +6,19 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# install squid
-apt install -y squid-openssl squidclient sudo
+# add diladele apt key
+wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
+
+# add new repo
+echo "deb https://squid68.diladele.com/ubuntu/ jammy main" \
+   > /etc/apt/sources.list.d/squid68.diladele.com.list
+
+# and install
+apt-get update && apt-get install -y \
+   squid-common \
+   squid-openssl \
+   squidclient \
+   libecap3 libecap3-dev
 
 # change the number of default file descriptors
 OVERRIDE_DIR=/etc/systemd/system/squid.service.d
@@ -20,5 +31,5 @@ rm $OVERRIDE_CNF
 echo "[Service]"         >> $OVERRIDE_CNF
 echo "LimitNOFILE=65535" >> $OVERRIDE_CNF
 
-# and reload the systemd
+# reload the systemd
 systemctl daemon-reload

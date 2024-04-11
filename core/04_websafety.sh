@@ -6,20 +6,15 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# default arc
-MAJOR="9.0.0"
-MINOR="13EE"
+# install web safety core daemons
+MAJOR="9.1.0"
+MINOR="C753"
 ARCH="amd64"
 
-# get latest build
-cat /proc/cpuinfo | grep -m 1 ARMv7 > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    ARCH="armhf"
-fi
+# download
+wget https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu22/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
-wget https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/debian12/websafety-$MAJOR.${MINOR}_$ARCH.deb
-
-# install it
+# install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # for the authenticated portal to work we need to show our own deny info for 511 requests
