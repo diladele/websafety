@@ -19,7 +19,7 @@ tar xvfz node_exporter-${VERSION}.linux-amd64.tar.gz && rm node_exporter-${VERSI
 pushd node_exporter-${VERSION}.linux-amd64
 
 # move to bin and etc
-mv node_exporter-${VERSION}.linux-amd64/node_exporter /usr/local/bin
+mv node_exporter /usr/local/bin
 
 # return to parent folder
 popd
