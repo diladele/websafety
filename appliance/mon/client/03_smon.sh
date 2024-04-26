@@ -10,7 +10,8 @@ fi
 # in future the smon will be part of websafety build
 
 # move to bin and etc
-mv /home/builder/diladele/webfilter-core/bin/amd64/release/smond /opt/websafety/bin
+cp /home/builder/diladele/webfilter-core/bin/amd64/release/smond /opt/websafety/bin
+cp /home/builder/diladele/webfilter-core/src.go/src/diladele/smon/smond.json /opt/websafety/etc
 
 # return to parent folder
 # popd
@@ -34,7 +35,7 @@ Group=proxy
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStart=/opt/websafety/bin/smond
+ExecStart=/opt/websafety/bin/smond --product=websafety --config=/opt/websafety/etc/smond.json
 StandardOutput=append:/opt/websafety/var/log/smond.log
 StandardError=append:/opt/websafety/var/log/smond.log
 
