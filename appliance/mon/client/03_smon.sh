@@ -6,44 +6,37 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# install lts version of prometheus
-VERSION="1.7.0"
-
-# download
-wget https://github.com/prometheus/node_exporter/releases/download/v${VERSION}/node_exporter-${VERSION}.linux-amd64.tar.gz
-
-# extract contents and remove original archive
-tar xvfz node_exporter-${VERSION}.linux-amd64.tar.gz && rm node_exporter-${VERSION}.linux-amd64.tar.gz
-
-# change into extracted folder
-pushd node_exporter-${VERSION}.linux-amd64
+# for now just copy the compiled version to predefined location on this machine
+# in future the smon will be part of websafety build
 
 # move to bin and etc
-mv node_exporter /usr/local/bin
+mv /home/builder/diladele/webfilter-core/bin/amd64/release/smond /opt/websafety/bin
 
 # return to parent folder
-popd
+# popd
 
 # and check exporter is installed
-node_exporter --version
+# node_exporter --version
 
 # now we will configure exporter to run as a system daemon, add a dedicated user
-useradd -rs /bin/false node_exporter
+# useradd -rs /bin/false node_exporter
 
 # create systemctl service file
-cat >/etc/systemd/system/node_exporter.service << EOL
+cat >/etc/systemd/system/smond.service << EOL
 [Unit]
-Description=Node Exporter
+Description=WebSafety Exporter for Prometheus
 Wants=network-online.target
 After=network-online.target
 
 [Service]
-User=node_exporter
-Group=node_exporter
+User=proxy
+Group=proxy
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStart=/usr/local/bin/node_exporter
+ExecStart=/opt/websafety/bin/smond
+StandardOutput=append:/opt/websafety/var/log/smond.log
+StandardError=append:/opt/websafety/var/log/smond.log
 
 [Install]
 WantedBy=multi-user.target
@@ -51,9 +44,9 @@ EOL
 
 # reload the systemd, enable the service and check its status
 systemctl daemon-reload
-systemctl enable node_exporter
-systemctl restart node_exporter
+systemctl enable smond
+systemctl restart smond
 
 # good then
-systemctl status node_exporter
+systemctl status smond
 
