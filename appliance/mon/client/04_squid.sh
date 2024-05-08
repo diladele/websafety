@@ -13,7 +13,7 @@ VERSION="1.11.0"
 wget https://github.com/boynux/squid-exporter/releases/download/v${VERSION}/squid-exporter-linux-amd64
 
 # rename
-mv squid-exporter-linux-amd64 squid-exporter
+mv squid-exporter-linux-amd64 squid-exporter && chmod +x squid-exporter
 
 # move to bin
 mv squid-exporter /usr/local/bin/
