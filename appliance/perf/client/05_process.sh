@@ -13,16 +13,25 @@ VERSION="0.8.2"
 wget https://github.com/ncabatoff/process-exporter/releases/download/v${VERSION}/process-exporter-${VERSION}.linux-amd64.tar.gz
 
 # extract contents and remove original archive
-tar process-exporter-${VERSION}.linux-amd64.tar.gz && rm process-exporter-${VERSION}.linux-amd64.tar.gz
+tar xvfz process-exporter-${VERSION}.linux-amd64.tar.gz && rm process-exporter-${VERSION}.linux-amd64.tar.gz
 
-# rename
+# change into extracted folder
+pushd process-exporter-${VERSION}.linux-amd64
+
+# make executable
 chmod +x process-exporter
 
 # move to bin
 mv process-exporter /usr/local/bin/
 
-# and check exporter is installed
+# return to parent folder
+popd
+
+# check exporter is installed
 process-exporter --version
+
+# create yaml to export info about wsicapd
+TODO
 
 # create systemctl service file
 cat >/etc/systemd/system/process_exporter.service << EOL

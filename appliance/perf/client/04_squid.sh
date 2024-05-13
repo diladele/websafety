@@ -34,7 +34,7 @@ Group=proxy
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStart=/usr/local/bin/squid-exporter -squid-hostname "localhost" -squid-port 3128
+ExecStart=/usr/local/bin/squid-exporter -squid-hostname "localhost" -squid-port 3128 -listen ":9102"
 StandardOutput=append:/opt/websafety/var/log/squid_exporter.log
 StandardError=append:/opt/websafety/var/log/squid_exporter.log
 
