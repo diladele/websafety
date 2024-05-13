@@ -31,7 +31,10 @@ popd
 process-exporter --version
 
 # create yaml to export info about wsicapd
-TODO
+cp process_exporter.yml /opt/websafety/etc/perf/
+
+# and set the owner
+chown proxy:proxy /opt/websafety/etc/perf/process_exporter.yml
 
 # create systemctl service file
 cat >/etc/systemd/system/process_exporter.service << EOL
@@ -46,7 +49,7 @@ Group=proxy
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStart=/usr/local/bin/process-exporter -config.path /opt/websafety/etc/process_exporter.yml
+ExecStart=/usr/local/bin/process-exporter -config.path /opt/websafety/etc/perf/process_exporter.yml --web.listen-address=127.0.0.1:9103
 StandardOutput=append:/opt/websafety/var/log/process_exporter.log
 StandardError=append:/opt/websafety/var/log/process_exporter.log
 
