@@ -1,0 +1,8 @@
+process_names:
+  - comm:
+    - squid
+    - wsicapd
+    - gsbd
+    - wssyncd
+    - ytguard
+    - perfd
