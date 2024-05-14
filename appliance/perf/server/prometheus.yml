@@ -41,10 +41,12 @@ scrape_configs:
         #- "192.168.4.12:9090"
         #- "192.168.4.14:9090"
         - "192.168.4.101:9090"
+        labels:
+          app: websafety
     metrics_path: /metrics/node
     relabel_configs:
     - source_labels: [__address__]
-      target_label: instance
+      target_label: appliance
       regex: (.*)[:].+
 
   - job_name: "websafety_perf"
@@ -54,10 +56,12 @@ scrape_configs:
         #- "192.168.4.12:9101"
         #- "192.168.4.14:9101"
         - "192.168.4.101:9090"
+        labels:
+          app: websafety
     metrics_path: /metrics/perf
     relabel_configs:
     - source_labels: [__address__]
-      target_label: instance
+      target_label: appliance
       regex: (.*)[:].+
 
   - job_name: "websafety_squid"
@@ -67,10 +71,12 @@ scrape_configs:
         #- "192.168.4.12:9301"
         #- "192.168.4.14:9301"
         - "192.168.4.101:9090"
+        labels:
+          app: websafety
     metrics_path: /metrics/squid
     relabel_configs:
     - source_labels: [__address__]
-      target_label: instance
+      target_label: appliance
       regex: (.*)[:].+
 
   - job_name: "websafety_process"
@@ -80,8 +86,10 @@ scrape_configs:
         #- "192.168.4.12:9301"
         #- "192.168.4.14:9301"
         - "192.168.4.101:9090"
+        labels:
+          app: websafety
     metrics_path: /metrics/process
     relabel_configs:
     - source_labels: [__address__]
-      target_label: instance
+      target_label: appliance
       regex: (.*)[:].+
