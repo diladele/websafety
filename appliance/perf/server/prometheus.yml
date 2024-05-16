@@ -33,7 +33,7 @@ scrape_configs:
 
   #
   # we have jobs for node, perf, squid and process on each virtual appliance
-  # node how __address__ gets relabelled into appliance which is used in
+  # node how __address__ gets relabelled into instance which is used in
   # grafana dashboards later
   #
   - job_name: "websafety_node"
@@ -46,7 +46,7 @@ scrape_configs:
     metrics_path: /metrics/node
     relabel_configs:
     - source_labels: [__address__]
-      target_label: appliance
+      target_label: instance
       regex: (.*)[:].+
 
   - job_name: "websafety_perf"
@@ -59,7 +59,7 @@ scrape_configs:
     metrics_path: /metrics/perf
     relabel_configs:
     - source_labels: [__address__]
-      target_label: appliance
+      target_label: instance
       regex: (.*)[:].+
 
   - job_name: "websafety_squid"
@@ -72,7 +72,7 @@ scrape_configs:
     metrics_path: /metrics/squid
     relabel_configs:
     - source_labels: [__address__]
-      target_label: appliance
+      target_label: instance
       regex: (.*)[:].+
 
   - job_name: "websafety_process"
@@ -85,5 +85,5 @@ scrape_configs:
     metrics_path: /metrics/process
     relabel_configs:
     - source_labels: [__address__]
-      target_label: appliance
+      target_label: instance
       regex: (.*)[:].+

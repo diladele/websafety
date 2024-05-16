@@ -145,7 +145,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "up{app=\"websafety\", appliance=\"$appliance\",job=\"websafety_node\"}",
+          "expr": "up{app=\"websafety\", instance=\"$instance\",job=\"websafety_node\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -243,7 +243,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "100 * (1 - avg by(appliance)(irate(node_cpu_seconds_total{mode='idle',appliance='$appliance'}[1m])))",
+          "expr": "100 * (1 - avg by(instance)(irate(node_cpu_seconds_total{mode='idle',instance='$instance'}[1m])))",
           "interval": "",
           "legendFormat": "CPU Used",
           "range": true,
@@ -256,7 +256,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "((node_memory_MemAvailable_bytes{appliance='$appliance'}) / (node_memory_MemTotal_bytes{appliance='$appliance'}) * 100)",
+          "expr": "((node_memory_MemAvailable_bytes{instance='$instance'}) / (node_memory_MemTotal_bytes{instance='$instance'}) * 100)",
           "hide": false,
           "interval": "",
           "legendFormat": "Memory Available",
@@ -270,7 +270,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "((node_filesystem_avail_bytes{appliance='$appliance', mountpoint='/'}) / (node_filesystem_size_bytes{appliance='$appliance', mountpoint='/'}) * 100)",
+          "expr": "((node_filesystem_avail_bytes{instance='$instance', mountpoint='/'}) / (node_filesystem_size_bytes{instance='$instance', mountpoint='/'}) * 100)",
           "hide": false,
           "interval": "",
           "legendFormat": "Disc Available",
@@ -355,7 +355,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "squid_up{app=\"websafety\", appliance=\"$appliance\"}",
+          "expr": "squid_up{app=\"websafety\", instance=\"$instance\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -437,7 +437,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "icap_up{app=\"websafety\", appliance=\"$appliance\"}",
+          "expr": "icap_up{app=\"websafety\", instance=\"$instance\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -519,7 +519,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "safe_browsing_up{app=\"websafety\", appliance=\"$appliance\"}",
+          "expr": "safe_browsing_up{app=\"websafety\", instance=\"$instance\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -740,7 +740,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(irate(node_cpu_seconds_total{appliance=\"$appliance\",mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{appliance=\"$appliance\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance=\"$instance\",mode=\"system\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance=\"$instance\"}) by (cpu)))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -756,7 +756,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{appliance=\"$appliance\",mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{appliance=\"$appliance\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance=\"$instance\",mode=\"user\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance=\"$instance\"}) by (cpu)))",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -771,7 +771,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{appliance=\"$appliance\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{appliance=\"$appliance\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance=\"$instance\", mode=\"iowait\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance=\"$instance\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Busy Iowait",
@@ -785,7 +785,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{appliance=\"$appliance\", mode=~\".*irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{appliance=\"$appliance\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance=\"$instance\", mode=~\".*irq\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance=\"$instance\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Busy IRQs",
@@ -799,7 +799,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{appliance=\"$appliance\",  mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq'}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{appliance=\"$appliance\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance=\"$instance\",  mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq'}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance=\"$instance\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Busy Other",
@@ -813,7 +813,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(irate(node_cpu_seconds_total{appliance=\"$appliance\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{appliance=\"$appliance\"}) by (cpu)))",
+          "expr": "sum(irate(node_cpu_seconds_total{instance=\"$instance\", mode=\"idle\"}[$__rate_interval])) / scalar(count(count(node_cpu_seconds_total{instance=\"$instance\"}) by (cpu)))",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "Idle",
@@ -1284,7 +1284,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{appliance=\"$appliance\"}",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1299,7 +1299,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{appliance=\"$appliance\"} - node_memory_MemFree_bytes{appliance=\"$appliance\"} - (node_memory_Cached_bytes{appliance=\"$appliance\"} + node_memory_Buffers_bytes{appliance=\"$appliance\"} + node_memory_SReclaimable_bytes{appliance=\"$appliance\"})",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\"} - node_memory_MemFree_bytes{instance=\"$instance\"} - (node_memory_Cached_bytes{instance=\"$instance\"} + node_memory_Buffers_bytes{instance=\"$instance\"} + node_memory_SReclaimable_bytes{instance=\"$instance\"})",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -1314,7 +1314,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "node_memory_Cached_bytes{appliance=\"$appliance\"} + node_memory_Buffers_bytes{appliance=\"$appliance\"} + node_memory_SReclaimable_bytes{appliance=\"$appliance\"}",
+          "expr": "node_memory_Cached_bytes{instance=\"$instance\"} + node_memory_Buffers_bytes{instance=\"$instance\"} + node_memory_SReclaimable_bytes{instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "RAM Cache + Buffer",
@@ -1328,7 +1328,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemFree_bytes{appliance=\"$appliance\"}",
+          "expr": "node_memory_MemFree_bytes{instance=\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "RAM Free",
@@ -1342,7 +1342,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(node_memory_SwapTotal_bytes{appliance=\"$appliance\"} - node_memory_SwapFree_bytes{appliance=\"$appliance\"})",
+          "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\"} - node_memory_SwapFree_bytes{instance=\"$instance\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "SWAP Used",
@@ -1801,7 +1801,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{appliance=\"$appliance\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_receive_bytes_total{instance=\"$instance\"}[$__rate_interval])*8",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "recv {{device}}",
@@ -1815,7 +1815,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_bytes_total{appliance=\"$appliance\"}[$__rate_interval])*8",
+          "expr": "irate(node_network_transmit_bytes_total{instance=\"$instance\"}[$__rate_interval])*8",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "trans {{device}} ",
@@ -1918,7 +1918,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "100 - ((node_filesystem_avail_bytes{appliance=\"$appliance\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{appliance=\"$appliance\",device!~'rootfs'})",
+          "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{instance=\"$instance\",device!~'rootfs'})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "{{mountpoint}}",
@@ -1942,16 +1942,16 @@
           "type": "prometheus",
           "uid": "${DS_PROMETHEUS}"
         },
-        "definition": "label_values(appliance)",
+        "definition": "label_values(instance)",
         "hide": 0,
         "includeAll": false,
-        "label": "Appliance",
+        "label": "instance",
         "multi": false,
-        "name": "appliance",
+        "name": "instance",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(appliance)",
+          "query": "label_values(instance)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
