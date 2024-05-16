@@ -21,7 +21,7 @@ mv squid-exporter /usr/local/bin/
 # and check exporter is installed
 squid-exporter --version
 
-# create systemctl service file
+# create systemctl service file (note if you have haproxy in front of squid and use PROXY protocol change -squid-port 3128 to -squid-port 9999)
 cat >/etc/systemd/system/squid_exporter.service << EOL
 [Unit]
 Description=Squid Exporter for Prometheus
