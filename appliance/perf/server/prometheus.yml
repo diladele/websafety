@@ -32,15 +32,15 @@ scrape_configs:
       - targets: ["localhost:9090"]
 
   #
-  # we have jobs for node, perf and squid on each virtual appliance - node how __address__ gets relabelled into instance
+  # we have jobs for node, perf, squid and process on each virtual appliance
+  # node how __address__ gets relabelled into appliance which is used in
+  # grafana dashboards later
   #
   - job_name: "websafety_node"
     static_configs:
       - targets: 
-        #- "localhost:9090"
-        #- "192.168.4.12:9090"
-        #- "192.168.4.14:9090"
-        - "192.168.4.101:9090"
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
         labels:
           app: websafety
     metrics_path: /metrics/node
@@ -52,10 +52,8 @@ scrape_configs:
   - job_name: "websafety_perf"
     static_configs:
       - targets: 
-        #- "localhost:9101"
-        #- "192.168.4.12:9101"
-        #- "192.168.4.14:9101"
-        - "192.168.4.101:9090"
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
         labels:
           app: websafety
     metrics_path: /metrics/perf
@@ -67,10 +65,8 @@ scrape_configs:
   - job_name: "websafety_squid"
     static_configs:
       - targets: 
-        #- "localhost:9301"
-        #- "192.168.4.12:9301"
-        #- "192.168.4.14:9301"
-        - "192.168.4.101:9090"
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
         labels:
           app: websafety
     metrics_path: /metrics/squid
@@ -82,10 +78,8 @@ scrape_configs:
   - job_name: "websafety_process"
     static_configs:
       - targets: 
-        #- "localhost:9301"
-        #- "192.168.4.12:9301"
-        #- "192.168.4.14:9301"
-        - "192.168.4.101:9090"
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
         labels:
           app: websafety
     metrics_path: /metrics/process
