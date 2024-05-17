@@ -1,2 +1,3 @@
 license.pem
 license-cloud.pem
+*.secret
