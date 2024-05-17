@@ -6,8 +6,8 @@ groups:
       # websafety appliance is down
       #
       - alert: InstanceDown
-        expr: up == 0
-        for: 1m
+        expr: up{job="websafety_node", app="websafety"} == 0
+        for: 5m
         labels:
           severity: critical
         annotations:
@@ -17,7 +17,7 @@ groups:
       # websafety appliance has low disk space
       #
       - alert: InstanceLowDiskSpace
-        expr: node_filesystem_avail_bytes{mountpoint='/'} / node_filesystem_size_bytes * 100 <= 5
+        expr: ((node_filesystem_avail_bytes{app='websafety', mountpoint='/'}) / (node_filesystem_size_bytes{app='websafety', mountpoint='/'}) * 100) > 90
         labels:
           severity: critical
         annotations:
@@ -27,7 +27,7 @@ groups:
       # websafety appliance has low RAM
       #
       - alert: InstanceLowMemory
-        expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes <= 0.05
+        expr: ((node_memory_MemAvailable_bytes{app='websafety'}) / (node_memory_MemTotal_bytes{app='websafety'}) * 100) < 10
         for: 5m
         labels:
           severity: critical
@@ -38,7 +38,7 @@ groups:
       # websafety appliance high CPU
       #
       - alert: InstanceHighCPUUsage
-        expr: 100 - (avg by (instance) (rate(node_cpu{job="node",mode="idle"}[1m])) * 100) >= 80
+        expr: 100 * (1 - avg by(instance)(irate(node_cpu_seconds_total{mode='idle'}[1m]))) >= 80
         for: 5m
         labels:
           severity: warning

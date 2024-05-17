@@ -1,0 +1,11 @@
+route:
+  receiver: 'teams'
+
+receivers:
+  - name: 'web.hook'
+    webhook_configs:
+      - url: 'http://127.0.0.1:5001/'
+
+  - name: 'teams'
+    msteams_configs:    
+      - webhook_url: 'https://blabla.webhook.office.com/webhookb2/bafdbe36-728a-476b-9c91-9755a2102aa3@057485d6-aa30-424a-aa66-b668b2cb137b/IncomingWebhook/94e7c1fce1054e038fc55bb61e16bba5/42f6afa4-41ac-4672-99f6-93a4099d46bd'
