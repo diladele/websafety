@@ -1,0 +1,834 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.4.2"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "links": [],
+          "mappings": [],
+          "noValue": "-",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 0
+                    },
+                    {
+                      "color": "green",
+                      "value": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 1,
+                        "text": "Down"
+                      },
+                      "1": {
+                        "index": 0,
+                        "text": "Up"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU Used"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 70
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 80
+                    },
+                    {
+                      "color": "red",
+                      "value": 90
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "Node CPU usage ",
+                    "url": "/d/bdlornycvyuwwd/web-safety-appliance-overview?orgId=1&refresh=10s&var-instance=${__data.fields.instance}"
+                  }
+                ]
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "match": "nan",
+                      "result": {
+                        "color": "text",
+                        "index": 0,
+                        "text": "-"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 115
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Available"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 159
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Total"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 169
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory Available (%)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 0.1
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 0.2
+                    },
+                    {
+                      "color": "green",
+                      "value": 0.3
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 183
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "Node memory usage",
+                    "url": "/d/bdlornycvyuwwd/web-safety-appliance-overview?orgId=1&refresh=10s&var-instance=${__data.fields.instance}"
+                  }
+                ]
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "match": "nan",
+                      "result": {
+                        "color": "text",
+                        "index": 0,
+                        "text": "-"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Disk Available"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              },
+              {
+                "id": "custom.width",
+                "value": 168
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Disk Total"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Disk Available (%)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "red",
+                      "value": null
+                    },
+                    {
+                      "color": "dark-orange",
+                      "value": 0.1
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 0.2
+                    },
+                    {
+                      "color": "green",
+                      "value": 0.3
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 160
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "Node disk usage",
+                    "url": "/d/bdlornycvyuwwd/web-safety-appliance-overview?orgId=1&refresh=10s&var-instance=${__data.fields.instance}"
+                  }
+                ]
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "match": "nan",
+                      "result": {
+                        "color": "text",
+                        "index": 0,
+                        "text": "-"
+                      }
+                    },
+                    "type": "special"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Node"
+            },
+            "properties": [
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": false,
+                    "title": "Details",
+                    "url": "/d/bdlornycvyuwwd/web-safety-appliance-overview?orgId=1&refresh=10s&var-instance=${__data.fields.instance}"
+                  }
+                ]
+              },
+              {
+                "id": "custom.width",
+                "value": 220
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Group"
+            },
+            "properties": [
+              {
+                "id": "custom.align",
+                "value": "center"
+              },
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 18,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "up{app=\"websafety\", job=\"websafety_node\"}",
+          "format": "table",
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "Up"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "100 * (1 - avg by(instance)(irate(node_cpu_seconds_total{app=\"websafety\",mode='idle'}[1m])))",
+          "format": "table",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "CPU Used"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg by(instance)(node_memory_MemAvailable_bytes{app=\"websafety\"})",
+          "format": "table",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "Memory Available"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg by(instance)(node_memory_MemTotal_bytes{app=\"websafety\"})",
+          "format": "table",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "Memory Total"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg by(instance)(node_filesystem_avail_bytes{app=\"websafety\",mountpoint='/'})",
+          "format": "table",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "Disk Available"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg by(instance)(node_filesystem_size_bytes{app=\"websafety\",mountpoint='/'})",
+          "format": "table",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "Disk Total"
+        }
+      ],
+      "title": "Web Safety Appliances",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "instance"
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "First": {
+                "aggregations": [
+                  "first"
+                ],
+                "operation": "aggregate"
+              },
+              "Group": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #A": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #B": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #C": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #CPU Used": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #D": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Disc Available": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Disc Total": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Disk Available": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Disk Total": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #E": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #F": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Memory Available": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Memory Total": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Memory Usage": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "Value #Up": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "__name__": {
+                "aggregations": []
+              },
+              "instance": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "instance_group": {
+                "aggregations": [
+                  "last"
+                ],
+                "operation": "aggregate"
+              },
+              "job": {
+                "aggregations": [
+                  "last"
+                ]
+              },
+              "team": {
+                "aggregations": []
+              }
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Memory Available (%)",
+            "binary": {
+              "left": "Value #Memory Available (last)",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "Value #Memory Total (last)"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Disk Available (%)",
+            "binary": {
+              "left": "Value #Disk Available (last)",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "Value #Disk Total (last)"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "Disk Available (%)": 5,
+              "Memory Available (%)": 4,
+              "Value #CPU Used (last)": 3,
+              "Value #Disk Available (last)": 8,
+              "Value #Disk Total (last)": 9,
+              "Value #Memory Available (last)": 6,
+              "Value #Memory Total (last)": 7,
+              "Value #Up (last)": 2,
+              "instance": 1,
+              "instance_group (last)": 0
+            },
+            "renameByName": {
+              "First (first)": "",
+              "Group (first)": "",
+              "Group (last)": "",
+              "Memory Usage": "",
+              "Value #A (last)": "",
+              "Value #B (last)": "",
+              "Value #C (last)": "",
+              "Value #CPU Used (last)": "CPU Used",
+              "Value #D (last)": "",
+              "Value #Disc Available (last)": "Disk Available",
+              "Value #Disc Total (last)": "Disk Total",
+              "Value #Disk Available (last)": "Disk Available",
+              "Value #Disk Total (last)": "Disk Total",
+              "Value #E (last)": "",
+              "Value #F (last)": "",
+              "Value #Memory Available (last)": "Memory Available",
+              "Value #Memory Total (last)": "Memory Total",
+              "Value #Up (last)": "State",
+              "instance": "Node",
+              "instance_group (last)": "Group"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": false,
+                "field": "Group"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Web Safety Appliances",
+  "uid": "cdlunnxvvdmv4c",
+  "version": 5,
+  "weekStart": ""
+}

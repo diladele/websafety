@@ -1,0 +1,93 @@
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+#
+# alertmanager configuration
+#
+alerting:
+  alertmanagers:
+    - static_configs:
+      - targets:
+        - localhost:9093
+
+#
+# alerting rules periodically evaluated
+#
+rule_files:
+  - "websafety_alerts.yml"
+
+#
+# scrape configuration 
+#
+scrape_configs:
+
+  # 
+  # sample job for this same prometheus instance
+  # 
+  - job_name: "prometheus"
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  #
+  # we have jobs for node, perf, squid and process on each virtual appliance
+  # node how __address__ gets relabelled into instance which is used in
+  # grafana dashboards later
+  #
+  - job_name: "websafety_node"
+    static_configs:
+      - targets: 
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
+        labels:
+          app: websafety
+    metrics_path: /metrics/node
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: instance
+      regex: (.*)[:].+
+
+  - job_name: "websafety_perf"
+    static_configs:
+      - targets: 
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
+        labels:
+          app: websafety
+    metrics_path: /metrics/perf
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: instance
+      regex: (.*)[:].+
+
+  - job_name: "websafety_squid"
+    static_configs:
+      - targets: 
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
+        labels:
+          app: websafety
+    metrics_path: /metrics/squid
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: instance
+      regex: (.*)[:].+
+
+  - job_name: "websafety_process"
+    static_configs:
+      - targets: 
+        - "192.168.4.12:9090"
+        - "192.168.4.14:9090"
+        labels:
+          app: websafety
+    metrics_path: /metrics/process
+    relabel_configs:
+    - source_labels: [__address__]
+      target_label: instance
+      regex: (.*)[:].+
