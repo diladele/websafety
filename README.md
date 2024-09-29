@@ -1,8 +1,9 @@
 Web Safety for Squid
 ====================
 
-Web Safety is an ICAP web filter that integrates with existing Squid proxy server and provides rich content and web filtering functionality to sanitize Internet traffic passing into internal home/enterprise network.
+Web Safety is a simple and powerful web filtering proxy / secure web gateway that provides rich content and web filtering functionality to sanitize Internet traffic passing into internal home/school/enterprise network. It may be used to block illegal or potentially malicious file downloads, remove annoying advertisements, prevent access to various categories of the web sites and block resources with explicit content.
 
+The application is easily deployed and managed, requires minimal external dependencies, very robust and runs with excellent performance.
 Main features of the application are:
 
 - filters encrypted HTTPS traffic using Squid's SSL-Bump and Peek-n-Splice technologies
@@ -14,6 +15,6 @@ Main features of the application are:
 - removes annoying web ads 
 - protects online privacy by disallowing access to web trackers
 
-Web Safety runs on modern versions of RedHat, CentOS, Debian/Raspberry PI and Ubuntu Linux, providing comprehensive web filtering solution easily manageable from Web UI.
+Fully configured versions of Web Safety can be quickly deployed as virtual appliance in VMware vSphere/ESXi, Microsoft Hyper-V, Microsoft Azure Cloud and Amazon AWS. It is also possible to install it on your real hardware by following installation tutorials in the Administrator Guide.
 
-More information at https://www.diladele.com
+More information at https://www.diladele.com/websafety/
