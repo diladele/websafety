@@ -11,10 +11,16 @@ pushd appliance/va
 bash 01_login.sh && bash 02_harden.sh
 popd
 
-# set new license
+# see if we have a new license to install
 if [ -f license.pem ]; then
     sudo -u proxy cp license.pem /opt/websafety/etc/license.pem
 fi
+
+# change working dir into root
+cd /root
+
+# remove the build user completely
+deluser --remove-home builder
 
 # tell 
 echo "SUCCESS"
@@ -23,3 +29,6 @@ echo "SUCCESS --- Virtual Appliance is ready, do NOT REBOOT ANY MORE, just expor
 cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"
+
+# and shutdown after 1 minute
+cd /root && shutdown -P +1
