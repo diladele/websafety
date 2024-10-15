@@ -13,7 +13,8 @@ popd
 
 # set new license
 if [ -f license.pem ]; then
-    sudo -u proxy cp license.pem /opt/websafety/etc/license.pem
+   cp license.pem /opt/websafety/etc/license.pem
+   chown proxy:proxy /opt/websafety/etc/license.pem
 fi
 
 # tell 
