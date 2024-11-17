@@ -1,1 +1,5 @@
+# this is a comment
 0.0.0.0 www.example.com
+
+# this is another comment
+0.0.0.0 www.example.org
