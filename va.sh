@@ -30,5 +30,5 @@ cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"
 
-# and shutdown after 1 minute
-cd /root && shutdown -P +1
+# and shutdown
+cd /root && shutdown -h now
