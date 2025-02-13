@@ -10,8 +10,8 @@ fi
 wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
 
 # add new repo
-echo "deb https://squid610.diladele.com/ubuntu/ jammy main" \
-   > /etc/apt/sources.list.d/squid610.diladele.com.list
+echo "deb https://squid613.diladele.com/ubuntu/ jammy main" \
+   > /etc/apt/sources.list.d/squid613.diladele.com.list
 
 # and install
 apt-get update && apt-get install -y \
@@ -30,6 +30,9 @@ mkdir -p $OVERRIDE_DIR
 rm $OVERRIDE_CNF
 echo "[Service]"         >> $OVERRIDE_CNF
 echo "LimitNOFILE=65535" >> $OVERRIDE_CNF
+
+# switch to openssl based squid
+update-alternatives --set squid /usr/sbin/squid-openssl
 
 # reload the systemd
 systemctl daemon-reload

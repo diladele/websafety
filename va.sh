@@ -2,8 +2,8 @@
 
 # check we are root
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
+    echo "This script must be run as root" 1>&2
+    exit 1
 fi
 
 # install va scripts
@@ -13,8 +13,12 @@ popd
 
 # see if we have a new license to install
 if [ -f license.pem ]; then
-   cp license.pem /opt/websafety/etc/license.pem
-   chown proxy:proxy /opt/websafety/etc/license.pem
+
+    # copy the license key
+    cp license.pem /opt/websafety/etc/license.pem
+
+    # and change owner to proxy user
+    chown proxy:proxy /opt/websafety/etc/license.pem
 fi
 
 # change working dir into root
@@ -31,5 +35,5 @@ cat /opt/websafety/etc/license.pem | grep "Not After"
 echo "SUCCESS"
 echo "SUCCESS"
 
-# and shutdown after 1 minute
-cd /root && shutdown -P +1
+# and shutdown
+cd /root && shutdown -h now
