@@ -48,8 +48,17 @@ cp wsissue.service /etc/systemd/system/wsissue.service
 # enable it
 systemctl enable wsissue.service
 
-# finally let ui to manage the network
-sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu22
+# in Ubuntu 24.04 the installer creates 50-cloud-init.yaml but our Admin UI expects
+# the 00-installer-config.yaml, so here we just rename it for simplicity
+if [ -e "/etc/netplan/50-cloud-init.yaml" ]; then
+   mv /etc/netplan/50-cloud-init.yaml /etc/netplan/00-installer-config.yaml
+fi
+
+# and make it readable by the Admin UI
+chmod a+r /etc/netplan/00-installer-config.yaml
+
+# switch Admin UI to actually manage the network
+sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu24
 
 # and sync ui data and actual files in disk
 sudo -u proxy /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/generate.py --core
