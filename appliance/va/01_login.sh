@@ -6,12 +6,6 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-# our va is in amsterdam timezone
-timedatectl set-timezone "Europe/Amsterdam" 
-
-# change cloud config to preserve hostname, otherwise our UI cannot set it
-sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
-
 # we do not allow root login for ssh any more in virtual appliance (use terminal console)
 # sed -i "s/#\{0,1\}PermitRootLogin *.*$/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
@@ -56,6 +50,15 @@ fi
 
 # and make it readable by the Admin UI
 chmod a+r /etc/netplan/00-installer-config.yaml
+
+# set the timezone to Europe/Amsterdam in the system settings
+timedatectl set-timezone "Europe/Amsterdam" 
+
+# also update the /etc/timezone and /etc/localtime links
+/opt/websafety-ui/env/bin/python3 /opt/websafety-ui/bin/timezone.py --timezone="Europe/Amsterdam" --system=linux --distrib=ubuntu24
+
+# change cloud config to preserve hostname, otherwise our UI cannot set it
+sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
 
 # switch Admin UI to actually manage the network
 sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/utils.py --network=ubuntu24
