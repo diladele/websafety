@@ -7,18 +7,12 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # default arch and version
-MAJOR="9.5.0"
-MINOR="0DEE"
+MAJOR="9.6.0"
+MINOR="4C98"
 ARCH="amd64"
 
-# default os
-OSNAME="debian12"
-if [ -f "/etc/lsb-release" ]; then
-    OSNAME="ubuntu22"
-fi
-
 # download
-wget https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/$OSNAME/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
+wget https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/ubuntu24/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb

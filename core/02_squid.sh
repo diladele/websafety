@@ -6,18 +6,23 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# add diladele apt key
-wget -qO - https://packages.diladele.com/diladele_pub.asc | sudo apt-key add -
+# get the diladele apt key into local file
+wget https://packages.diladele.com/diladele_pub.asc
+
+# cat it and dearmor
+cat diladele_pub.asc | gpg --dearmor -o diladele_pub.asc.gpg
+
+# and add it to the trusted storage
+mv diladele_pub.asc.gpg /etc/apt/trusted.gpg.d/
 
 # add new repo
-echo "deb https://squid613.diladele.com/ubuntu/ jammy main" \
-   > /etc/apt/sources.list.d/squid613.diladele.com.list
+echo "deb https://squid71.diladele.com/ubuntu/ noble main" \
+   > /etc/apt/sources.list.d/squid71.diladele.com.list
 
 # and install
-apt-get update && apt-get install -y \
+apt update && apt install -y \
    squid-common \
    squid-openssl \
-   squidclient \
    libecap3 libecap3-dev
 
 # change the number of default file descriptors
