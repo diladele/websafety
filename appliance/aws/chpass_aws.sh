@@ -12,9 +12,16 @@ if [ -f $FLAG_FILE ]; then
     echo "Password value at least once, no need to do anything, skipping..."
     
 else
+    #
+    # we are using instance id as new password - based on instructions at
+    # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#instance-metadata-v2-how-it-works
+    #
 
-    # we are using instance id as new password
-    NEWPASW=`curl http://169.254.169.254/latest/meta-data/instance-id`
+    # get the temporary token
+    TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
+
+    # use that token to get the instance id
+    NEWPASW=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/instance-id/`
 
     # update the password in the database 
     sudo -u websafety /opt/websafety-ui/env/bin/python3 /opt/websafety-ui/var/console/reset_password.py --password=$NEWPASW
