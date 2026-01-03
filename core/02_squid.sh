@@ -16,8 +16,8 @@ cat diladele_pub.asc | gpg --dearmor -o diladele_pub.asc.gpg
 mv diladele_pub.asc.gpg /etc/apt/trusted.gpg.d/
 
 # add new repo
-echo "deb https://squid72.diladele.com/ubuntu/ noble main" \
-   > /etc/apt/sources.list.d/squid72.diladele.com.list
+echo "deb https://diladele.github.io/repo-squid-7_2_2-ubuntu-24_04/repo/ubuntu/ noble main" \
+   > /etc/apt/sources.list.d/squid-7_2_2.diladele.github.io.list
 
 # and install
 apt update && apt install -y \
