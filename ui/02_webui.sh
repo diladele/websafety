@@ -8,7 +8,7 @@ fi
 
 # default arch and version
 MAJOR="9.7.0"
-MINOR="A4A5"
+MINOR="8C8A"
 ARCH="amd64"
 
 # download
