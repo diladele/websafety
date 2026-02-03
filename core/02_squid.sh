@@ -6,18 +6,12 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# get the diladele apt key into local file
-wget https://packages.diladele.com/diladele_pub.asc
-
-# cat it and dearmor
-cat diladele_pub.asc | gpg --dearmor -o diladele_pub.asc.gpg
-
-# and add it to the trusted storage
-mv diladele_pub.asc.gpg /etc/apt/trusted.gpg.d/
+# get diladele apt key, dearmor it and add to trusted storage
+curl https://packages.diladele.com/diladele_pub.asc | gpg --dearmor >/etc/apt/trusted.gpg.d/diladele_pub.asc.gpg
 
 # add new repo
-echo "deb https://diladele.github.io/repo-squid-7_2_2-ubuntu-24_04/repo/ubuntu/ noble main" \
-   > /etc/apt/sources.list.d/squid-7_2_2.diladele.github.io.list
+echo "deb https://diladele.github.io/repo-squid-7_4_1-ubuntu-24_04/repo/ubuntu/ noble main" \
+   >/etc/apt/sources.list.d/squid-7_4_1.diladele.github.io.list
 
 # and install
 apt update && apt install -y \
@@ -25,19 +19,17 @@ apt update && apt install -y \
    squid-openssl \
    libecap3 libecap3-dev
 
-# change the number of default file descriptors
-OVERRIDE_DIR=/etc/systemd/system/squid.service.d
-OVERRIDE_CNF=$OVERRIDE_DIR/override.conf
+# create the override folder for squid
+mkdir -p /etc/systemd/system/squid.service.d/
 
-mkdir -p $OVERRIDE_DIR
-
-# generate the override file
-rm $OVERRIDE_CNF
-echo "[Service]"         >> $OVERRIDE_CNF
-echo "LimitNOFILE=65535" >> $OVERRIDE_CNF
+# and override the default number of file descriptors
+cat >/etc/systemd/system/squid.service.d/override.conf << EOL
+[Service]
+LimitNOFILE=65535
+EOL
 
 # switch to openssl based squid
 update-alternatives --set squid /usr/sbin/squid-openssl
 
-# reload the systemd
+# finally reload the systemd
 systemctl daemon-reload
