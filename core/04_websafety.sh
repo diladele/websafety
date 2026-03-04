@@ -12,7 +12,7 @@ MINOR="615E"
 ARCH="amd64"
 
 # download
-wget https://packages.diladele.com/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu24/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget https://www.diladele.com/pkg/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu24/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
