@@ -12,7 +12,7 @@ MINOR="8C8A"
 ARCH="amd64"
 
 # download
-wget https://packages.diladele.com/websafety-ui/$MAJOR.$MINOR/$ARCH/release/ubuntu24/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
+wget https://www.diladele.com/pkg/websafety-ui/$MAJOR.$MINOR/$ARCH/release/ubuntu24/websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb

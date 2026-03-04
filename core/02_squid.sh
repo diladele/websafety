@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # get the diladele apt key into local file
-wget https://packages.diladele.com/diladele_pub.asc
+wget https://www.diladele.com/pkg/diladele_pub.asc
 
 # cat it and dearmor
 cat diladele_pub.asc | gpg --dearmor -o diladele_pub.asc.gpg
