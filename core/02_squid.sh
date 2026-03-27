@@ -14,10 +14,7 @@ echo "deb https://diladele.github.io/repo-squid-7_5_1-ubuntu-24_04/repo/ubuntu/ 
    >/etc/apt/sources.list.d/squid-7_5_1.diladele.github.io.list
 
 # and install
-apt update && apt install -y \
-   squid-common \
-   squid-openssl \
-   libecap3 libecap3-dev
+apt update && apt install -y squid-openssl
 
 # create the override folder for squid
 mkdir -p /etc/systemd/system/squid.service.d/
@@ -27,9 +24,6 @@ cat >/etc/systemd/system/squid.service.d/override.conf << EOL
 [Service]
 LimitNOFILE=65535
 EOL
-
-# switch to openssl based squid
-update-alternatives --set squid /usr/sbin/squid-openssl
 
 # finally reload the systemd
 systemctl daemon-reload
