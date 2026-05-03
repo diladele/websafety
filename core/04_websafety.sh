@@ -8,11 +8,11 @@ fi
 
 # install web safety core daemons
 MAJOR="9.8.0"
-MINOR="309B"
+MINOR="66C3"
 ARCH="amd64"
 
 # download
-wget https://www.diladele.com/pkg/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu24/websafety-$MAJOR.${MINOR}_$ARCH.deb
+wget https://www.diladele.com/pkg/websafety-core/$MAJOR.$MINOR/$ARCH/release/ubuntu26/websafety-$MAJOR.${MINOR}_$ARCH.deb
 
 # install
 dpkg --install websafety-$MAJOR.${MINOR}_$ARCH.deb
