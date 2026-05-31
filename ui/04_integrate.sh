@@ -6,12 +6,12 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# Admin UI now runs using HTTPS so to integrate with apache, we need to enable the HTTPS
-a2enmod ssl
+# disable the default nginx site
+rm /etc/nginx/sites-enabled/default
 
-# disable the default site and enable web safety
-a2dissite 000-default
-a2ensite websafety
+# and enable web safety instead
+ln -s /etc/nginx/sites-available/websafety /etc/nginx/sites-enabled/websafety
 
 # finally restart all daemons
-service apache2 restart
+service nginx restart
+service gunicorn restart
