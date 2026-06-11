@@ -16,7 +16,7 @@ popd
 
 # install web safety ui
 pushd ui
-bash 01_apache.sh && \
+bash 01_nginx.sh && \
 bash 02_webui.sh && \
 bash 03_venv.sh && \
 bash 04_integrate.sh

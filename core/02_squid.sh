@@ -10,8 +10,8 @@ fi
 curl https://www.diladele.com/pkg/diladele_pub.asc | gpg --dearmor >/etc/apt/trusted.gpg.d/diladele_pub.asc.gpg
 
 # add new repo
-echo "deb https://diladele.github.io/repo-squid-7_5_1-ubuntu-26_04/repo/ubuntu/ resolute main" \
-   >/etc/apt/sources.list.d/squid-7_5_1.diladele.github.io.list
+echo "deb https://diladele.github.io/repo-squid-7_6_1-ubuntu-26_04/repo/ubuntu/ resolute main" \
+   >/etc/apt/sources.list.d/squid-7_6_1.diladele.github.io.list
 
 # and install
 apt update && apt install -y squid-openssl
