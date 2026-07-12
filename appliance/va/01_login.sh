@@ -17,7 +17,6 @@ if [ $? -eq 0 ]; then
         apt update > /dev/null
         apt install -y open-vm-tools
 
-
         # reset the machine-id to force different dhcp addreses - https://kb.vmware.com/s/article/82229
         echo -n > /etc/machine-id
         rm /var/lib/dbus/machine-id
@@ -54,8 +53,8 @@ chmod a+r /etc/netplan/00-installer-config.yaml
 # set the timezone to Europe/Amsterdam in the system settings
 timedatectl set-timezone "Europe/Amsterdam" 
 
-# also update the /etc/timezone and /etc/localtime links
-/opt/websafety-ui/env/bin/python3 /opt/websafety-ui/bin/timezone.py --timezone="Europe/Amsterdam" --system=linux --distrib=ubuntu24
+# also update the /etc/localtime link
+/opt/websafety-ui/env/bin/python3 /opt/websafety-ui/bin/timezone.py --timezone="Europe/Amsterdam"
 
 # change cloud config to preserve hostname, otherwise our UI cannot set it
 sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
