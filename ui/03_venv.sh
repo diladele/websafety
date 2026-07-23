@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install various required python packages from the system repo
-apt install -y python3-dev python3-openssl python3.12-venv \
+apt install -y python3-dev python3-openssl python3.14-venv \
    libjpeg-dev zlib1g-dev libldap2-dev libsasl2-dev libssl-dev
 
 # create a virtual environment in the /opt/websafety-ui folder

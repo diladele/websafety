@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # install clamav and some other tools
-apt install -y clamav clamav-daemon libclamav-dev g++ make pkg-config patch dmidecode
+apt install -y clamav clamav-daemon libclamav-dev g++ make pkg-config patch dmidecode libecap3-dev
 
 # from now on every error is fatal
 set -e
