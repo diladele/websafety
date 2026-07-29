@@ -11,3 +11,6 @@ export DEBIAN_FRONTEND=noninteractive
 
 # install nginx and kerberos client libraries
 apt -y install nginx krb5-user
+
+# we need htpasswd for the local user authentication
+apt -y install apache2-utils
