@@ -16,3 +16,6 @@ wget https://www.diladele.com/pkg/websafety-ui/$MAJOR.$MINOR/$ARCH/release/ubunt
 
 # install
 dpkg --install websafety-ui-$MAJOR.${MINOR}_$ARCH.deb
+
+# and replace the timezone.py with incorrect assert
+cp -f timezone.py /opt/websafety-ui/var/console/_domain/node/timezone.py
